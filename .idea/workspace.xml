@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="52a98dd3-ecec-46e4-a7c7-2b907d1660af" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/br.com.rsinet.treinamentohub/ProjectTreinamentoHub/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/br.com.rsinet.treinamentohub/ProjectTreinamentoHub/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/massaDeTests.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/massaDeTests.feature" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1W4zVeYmg9UX4i9wJYsaf5e49op" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Intellij_IdeaProjects" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\java-codigo\Selenium_Automacao\ProjectTreinamentoHub\src\test\resources\features" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Runner">
+    <configuration name="Feature: massaDeTests" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="ProjectTreinamentoHub" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="SUGGESTED_NAME" value="Feature: massaDeTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Deve criar conta" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" />
+      <option name="GLUE" value="steps" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="ProjectTreinamentoHub" />
+      <option name="NAME_FILTER" value="^Deve criar conta$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Deve criar conta$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Deve criar conta" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Deve enviar o formulario com as regras de preenchimento" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="ProjectTreinamentoHub" />
+      <option name="NAME_FILTER" value="^Deve enviar o formulario com as regras de preenchimento$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^Deve enviar o formulario com as regras de preenchimento$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Deve enviar o formulario com as regras de preenchimento" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: aa" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/massaDeTests.feature" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="ProjectTreinamentoHub" />
+      <option name="NAME_FILTER" value="^aa$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome --name &quot;^aa$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: aa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Runner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectTreinamentoHub" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="runner" />
+      <option name="MAIN_CLASS_NAME" value="runner.Runner" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Runner" />
+        <item itemvalue="Cucumber java.Scenario: aa" />
+        <item itemvalue="Cucumber java.Feature: massaDeTests" />
+        <item itemvalue="Cucumber java.Scenario: Deve enviar o formulario com as regras de preenchimento" />
+        <item itemvalue="Cucumber java.Scenario: Deve criar conta" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52a98dd3-ecec-46e4-a7c7-2b907d1660af" name="Default Changelist" comment="" />
+      <created>1578423679566</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578423679566</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1578508395104">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578508395104" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1578570949010">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578570949010" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1578514391808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578427369043" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578514391808" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1578514391808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578427369043" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578514391808" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1578514391808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578427369042" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578514391808" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1578514391808">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578427369043" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578514391808" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1578489114169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578489114169" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1578489114169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578489114169" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1578489114169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578489114169" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1578489114169">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728/-1360.58.1360.728@0.0.1366.728" timestamp="1578489114169" />
+    <state x="368" y="3" key="SettingsEditor" timestamp="1578424042295">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="368" y="3" key="SettingsEditor/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578424042295" />
+    <state x="379" y="0" width="607" height="728" key="find.popup" timestamp="1578424253398">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="0" width="607" height="728" key="find.popup/0.0.1366.728/-1360.165.1360.728@0.0.1366.728" timestamp="1578424253398" />
+  </component>
+</project>

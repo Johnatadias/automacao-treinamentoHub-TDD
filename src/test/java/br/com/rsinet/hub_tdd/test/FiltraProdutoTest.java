@@ -55,8 +55,8 @@ public class FiltraProdutoTest {
 		ExcelUtils.setExcelFile("target/massaDeDados/procuraProduto.xlsx", "Plan1");
 
 		// ##################################################################
-		String categoriaDoProduto = ExcelUtils.getCellData(8, 0);
-		String assertProduto = ExcelUtils.getCellData(8, 1);
+		String categoriaDoProduto = ExcelUtils.getCellData(10, 0);
+		String assertProduto = ExcelUtils.getCellData(10, 1);
 
 		homePage.clicaLupaPesquisa.click();
 		homePage.inserirNomeCategoria.sendKeys(categoriaDoProduto + Keys.ENTER);
@@ -68,6 +68,6 @@ public class FiltraProdutoTest {
 
 	@After
 	public void finaliza() {
-		Web.killChromer(driver);
+		//Web.killChromer(driver);
 	}
 }

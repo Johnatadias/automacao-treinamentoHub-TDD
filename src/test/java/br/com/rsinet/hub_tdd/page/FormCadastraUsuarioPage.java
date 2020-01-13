@@ -49,5 +49,20 @@ public class FormCadastraUsuarioPage {
 	public WebElement botaoRegistrar;
 	
 	@FindBy(how = How.ID, using = "menuUserLink")
-	public WebElement infoParaValidacao;
+	public WebElement validandoUsuarioCriado;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]")
+	public WebElement validandoUsuarioExistente;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\\\"formCover\\\"]/div[1]/div[1]/sec-view[1]/div/label")
+	public WebElement validandoCampoUserName;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\\\"formCover\\\"]/div[1]/div[1]/sec-view[2]/div/label")
+	public WebElement validandoCampoEmail;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\\\"formCover\\\"]/div[1]/div[2]/sec-view[1]/div/label")
+	public WebElement validandoCampoPass;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\\\"formCover\\\"]/div[1]/div[2]/sec-view[2]/div/label")
+	public WebElement validandoCampoConfirmPass;
 }

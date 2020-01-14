@@ -11,7 +11,7 @@ public class Web {
 		System.setProperty("webdriver.chrome.driver", "c:/Drivers-Libs-Servidor/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.advantageonlineshopping.com/#/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 		return driver;

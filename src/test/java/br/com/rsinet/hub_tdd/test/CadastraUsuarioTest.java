@@ -1,18 +1,24 @@
 package br.com.rsinet.hub_tdd.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub_tdd.page.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
+import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Screenshot;
 import br.com.rsinet.hub_tdd.suport.Web;
 
@@ -21,7 +27,14 @@ public class CadastraUsuarioTest {
 	private WebDriver driver;
 	private HomePage homePage;
 	private FormCadastraUsuarioPage cadastraUsuario;
+	private ExtentTest test;
+	private ExtentReports extent;
 
+	@BeforeTest
+	public void setConfigReport() {
+		extent = Report.setReport("cadastraUsuario_report");
+	}
+	
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		driver = Web.createChromer();
@@ -36,7 +49,8 @@ public class CadastraUsuarioTest {
 
 	@Test
 	public void deveCadastrarUsuarioNovoTest() throws Exception {
-
+		test = Report.createTest("deveCadastrarUsuarioNovoTest");
+		
 		cadastraUsuario.userName.sendKeys(ExcelUtils.getCellData(1, 1));
 		cadastraUsuario.email.sendKeys(ExcelUtils.getCellData(2, 1));
 		cadastraUsuario.password.sendKeys(ExcelUtils.getCellData(3, 1));
@@ -59,13 +73,12 @@ public class CadastraUsuarioTest {
 		String assertAccount = ExcelUtils.getCellData(13, 1);
 
 		assertEquals(assertAccount, cadastraUsuario.validandoUsuarioCriado.getText());
-		
-		Screenshot.gerarScreenShot(driver, "deveCadastrarUsuarioNovoTest");
 	}
 
 	@Test
 	public void deveValidarCamposObrigatorioDoCadastroTest() throws Exception {
-
+		test = Report.createTest("deveValidarCamposObrigatorioDoCadastroTest");
+		
 		String userName = "";
 		String email = "";
 		String password = "";
@@ -95,12 +108,14 @@ public class CadastraUsuarioTest {
 		assertEquals(assertEmail, cadastraUsuario.validandoCampoEmail.getText());
 		assertEquals(assertPassword, cadastraUsuario.validandoCampoPass.getText());
 		assertEquals(assertConfirmPassword, cadastraUsuario.validandoCampoConfirmPass.getText());
-		
-		Screenshot.gerarScreenShot(driver, "deveValidarCamposObrigatorioDoCadastroTest");
 	}
 
 	@AfterMethod
-	public void finaliza() {
+	public void finaliza(ITestResult result) {
+		Screenshot.gerarScreenShot(driver, result.getName());
+		Report.statusReported(test, result);
+
+		Report.killExtent(extent);
 		Web.killChromer(driver);
 	}
 }

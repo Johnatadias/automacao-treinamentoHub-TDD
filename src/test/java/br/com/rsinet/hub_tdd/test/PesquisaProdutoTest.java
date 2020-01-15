@@ -1,18 +1,25 @@
 package br.com.rsinet.hub_tdd.test;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub_tdd.page.CategoriaPage;
 import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
+import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Screenshot;
 import br.com.rsinet.hub_tdd.suport.Web;
 
@@ -22,7 +29,14 @@ public class PesquisaProdutoTest {
 	private HomePage homePage;
 	private CategoriaPage categoriaPage;
 	private ProdutoDescricaoPage produtoDescPage;
+	private ExtentTest test;
+	private ExtentReports extent;
 
+	@BeforeTest
+	public void setConfigReport() {
+		extent = Report.setReport("pesquisaProduto_report");
+	}
+	
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		driver = Web.createChromer();
@@ -36,7 +50,8 @@ public class PesquisaProdutoTest {
 
 	@Test
 	public void deveProcurarProdutoPorHomePage() throws Exception {
-
+		test = Report.createTest("deveProcurarProdutoPorHomePage");
+		
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
 		String assertProduto = ExcelUtils.getCellData(2, 2);
@@ -46,16 +61,15 @@ public class PesquisaProdutoTest {
 
 		// Validando se produto foi escolhido corretamente
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
-
-		Screenshot.gerarScreenShot(driver, "deveProcurarProdutoPorHomePage");
 	}
 	
 	@Test
 	public void naoDeveAddMaisDezProdutoNoCarrinhoDeCompras() throws Exception {
-
+		test = Report.createTest("naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
+		
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
-		String quantidadeProduto = "999";
+		String quantidadeProduto = ExcelUtils.getCellData(4, 3);
 		String assertMensagem = ExcelUtils.getCellData(4, 2);
 
 		homePage.buscaCategoria(driver, categoriaDoProduto);
@@ -68,12 +82,14 @@ public class PesquisaProdutoTest {
 		
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("scrollBy(0,200)", "");
-
-		Screenshot.gerarScreenShot(driver, "naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
 	}
 
 	@AfterMethod
-	public void finaliza() {
+	public void finaliza(ITestResult result) {
+		Screenshot.gerarScreenShot(driver, result.getName());
+		Report.statusReported(test, result);
+
+		Report.killExtent(extent);
 		Web.killChromer(driver);
 	}
 }

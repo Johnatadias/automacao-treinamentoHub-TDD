@@ -1,19 +1,25 @@
 package br.com.rsinet.hub_tdd.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.page.ResultadoPesquisaPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
+import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Screenshot;
 import br.com.rsinet.hub_tdd.suport.Web;
 
@@ -23,6 +29,13 @@ public class FiltraProdutoTest {
 	private HomePage homePage;
 	private ResultadoPesquisaPage resultadoPesquisaPage;
 	private ProdutoDescricaoPage produtoDescPage;
+	private ExtentTest test;
+	private ExtentReports extent;
+
+	@BeforeTest
+	public void setConfigReport() {
+		extent = Report.setReport("filtraProduto_report");
+	}
 
 	@BeforeMethod
 	public void inicializa() throws Exception {
@@ -39,6 +52,7 @@ public class FiltraProdutoTest {
 
 	@Test
 	public void procuraProdutoExistentePelaLupaDePesquisa() throws Exception {
+		test = Report.createTest("procuraProdutoExistentePelaLupaDePesquisa");
 
 		String categoriaDoProduto = ExcelUtils.getCellData(1, 0);
 		String produto = ExcelUtils.getCellData(1, 1);
@@ -49,12 +63,11 @@ public class FiltraProdutoTest {
 
 		// Validandp se produto foi escolhido corretamente
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
-		
-		Screenshot.gerarScreenShot(driver, "procuraProdutoExistentePelaLupaDePesquisa");
 	}
 
 	@Test
 	public void procuraProdutoInexistentePelaLupaDePesquisa() throws Exception {
+		test = Report.createTest("procuraProdutoInexistentePelaLupaDePesquisa");
 
 		String categoriaDoProduto = ExcelUtils.getCellData(9, 0);
 		String assertProduto = ExcelUtils.getCellData(9, 1);
@@ -63,15 +76,17 @@ public class FiltraProdutoTest {
 
 		// Validandp se produto não foi encontrado
 		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult.getText());
-		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
-		
-		Screenshot.gerarScreenShot(driver, "procuraProdutoInexistentePelaLupaDePesquisa");
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
 	}
 
 	@AfterMethod
-	public void finaliza(){
+	public void finaliza(ITestResult result) {
+		Screenshot.gerarScreenShot(driver, result.getName());
+		Report.statusReported(test, result);
+
+		Report.killExtent(extent);
 		Web.killChromer(driver);
 	}
 }

@@ -2,16 +2,13 @@ package br.com.rsinet.hub_tdd.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
@@ -26,10 +23,8 @@ public class FiltraProdutoTest {
 	private HomePage homePage;
 	private ResultadoPesquisaPage resultadoPesquisaPage;
 	private ProdutoDescricaoPage produtoDescPage;
-	@Rule
-	public TestName testName = new TestName();
 
-	@Before
+	@BeforeMethod
 	public void inicializa() throws Exception {
 		driver = Web.createChromer();
 
@@ -45,32 +40,38 @@ public class FiltraProdutoTest {
 	@Test
 	public void procuraProdutoExistentePelaLupaDePesquisa() throws Exception {
 
-		String categoriaDoProduto = ExcelUtils.getCellData(3, 0);
-		String produto = ExcelUtils.getCellData(3, 1);
-		String assertProduto = ExcelUtils.getCellData(3, 2);
+		String categoriaDoProduto = ExcelUtils.getCellData(1, 0);
+		String produto = ExcelUtils.getCellData(1, 1);
+		String assertProduto = ExcelUtils.getCellData(1, 2);
 
 		homePage.inserirNomeCategoria.sendKeys(categoriaDoProduto + Keys.ENTER);
 		resultadoPesquisaPage.escolherProduto(driver, produto);
 
 		// Validandp se produto foi escolhido corretamente
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
+		
+		Screenshot.gerarScreenShot(driver, "procuraProdutoExistentePelaLupaDePesquisa");
 	}
 
 	@Test
 	public void procuraProdutoInexistentePelaLupaDePesquisa() throws Exception {
 
-		String categoriaDoProduto = ExcelUtils.getCellData(10, 0);
-		String assertProduto = ExcelUtils.getCellData(10, 1);
+		String categoriaDoProduto = ExcelUtils.getCellData(9, 0);
+		String assertProduto = ExcelUtils.getCellData(9, 1);
 
 		homePage.inserirNomeCategoria.sendKeys(categoriaDoProduto + Keys.ENTER);
 
-		// Validandp se produto foi escolhido corretamente
+		// Validandp se produto não foi encontrado
 		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult.getText());
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
+		
+		Screenshot.gerarScreenShot(driver, "procuraProdutoInexistentePelaLupaDePesquisa");
 	}
 
-	@After
-	public void finaliza() throws IOException {
-		Screenshot.gerarScreenShot(driver, testName);
+	@AfterMethod
+	public void finaliza(){
 		Web.killChromer(driver);
 	}
 }

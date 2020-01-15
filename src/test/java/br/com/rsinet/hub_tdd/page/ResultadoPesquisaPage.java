@@ -13,7 +13,7 @@ public class ResultadoPesquisaPage {
 		categoriaPage.escolherProdutoDaCategoria(driver, produto);
 		return new ProdutoDescricaoPage();
 	}
-	
+
 	@FindBy(how = How.XPATH, using = "//*[@id=\"searchPage\"]/div[3]/div/label/span")
 	public WebElement validandoResult;
 }

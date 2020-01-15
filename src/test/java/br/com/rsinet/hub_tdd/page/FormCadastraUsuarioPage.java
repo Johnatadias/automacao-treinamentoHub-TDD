@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class FormCadastraUsuarioPage {
-
+	
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	public WebElement userName;
 
@@ -66,12 +66,10 @@ public class FormCadastraUsuarioPage {
 	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[2]/div/label")
 	public WebElement validandoCampoConfirmPass;
 
-	public HomePage cadastrarUsuario(String userName, String email, String password, String confirmPass, 
-			String firstName, String lastName, String phoneNumber, String country, 
-			String city, String address, String state, String postalCode) {
+	public HomePage validandoCamposObrigatorio(String userName, String email, String password, String confirmPass, String firstName,
+			String lastName, String phoneNumber, String country, String city, String address, String state, String postalCode) {
 		
 		this.userName.sendKeys(userName);
-		this.lastName.sendKeys(lastName);
 		this.email.sendKeys(email);
 		this.password.sendKeys(password);
 		this.confirmPassword.sendKeys(confirmPass);
@@ -83,9 +81,6 @@ public class FormCadastraUsuarioPage {
 		this.address.sendKeys(address);
 		this.state.sendKeys(state);
 		this.postalCode.sendKeys(postalCode);
-		
-		this.aceitarTermo.click();
-		this.botaoRegistrar.click();
 		
 		return new HomePage();
 	}

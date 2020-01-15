@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="12667" started-at="2020-01-14T15:10:12 BRT" finished-at="2020-01-14T15:10:24 BRT">
+  <suite name="Default suite" duration-ms="16290" started-at="2020-01-15T13:34:59Z" finished-at="2020-01-15T13:35:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="12667" started-at="2020-01-14T15:10:12 BRT" finished-at="2020-01-14T15:10:24 BRT">
-      <class name="br.com.rsinet.hub_tdd.test.FiltraProdutoTest">
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@23faf8f2]" name="inicializa" is-config="true" duration-ms="11160" started-at="2020-01-14T15:10:12 BRT" finished-at="2020-01-14T15:10:23 BRT">
+    <test name="Default test" duration-ms="16290" started-at="2020-01-15T13:34:59Z" finished-at="2020-01-15T13:35:15Z">
+      <class name="br.com.rsinet.hub_tdd.test.CadastraUsuarioTest">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@47c62251]" name="inicializa" is-config="true" duration-ms="11815" started-at="2020-01-15T13:34:59Z" finished-at="2020-01-15T13:35:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@23faf8f2]" name="procuraProdutoInexistentePelaLupaDePesquisa" duration-ms="418" started-at="2020-01-14T15:10:23 BRT" finished-at="2020-01-14T15:10:23 BRT">
+        <test-method status="PASS" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@47c62251]" name="deveCadastrarUsuarioNovoTest" duration-ms="3818" started-at="2020-01-15T13:35:11Z" finished-at="2020-01-15T13:35:15Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- procuraProdutoInexistentePelaLupaDePesquisa -->
-        <test-method status="PASS" signature="finaliza()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@23faf8f2]" name="finaliza" is-config="true" duration-ms="1063" started-at="2020-01-14T15:10:23 BRT" finished-at="2020-01-14T15:10:24 BRT">
+        </test-method> <!-- deveCadastrarUsuarioNovoTest -->
+        <test-method status="PASS" signature="finaliza()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@47c62251]" name="finaliza" is-config="true" duration-ms="639" started-at="2020-01-15T13:35:15Z" finished-at="2020-01-15T13:35:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-      </class> <!-- br.com.rsinet.hub_tdd.test.FiltraProdutoTest -->
+      </class> <!-- br.com.rsinet.hub_tdd.test.CadastraUsuarioTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -10,7 +10,6 @@ public class HomePage {
 	
 	//####################################################################
 	//metodo de test cadastraUsuario
-	
 	@FindBy(how = How.ID, using = "menuUserLink")
 	public WebElement clica_IconeUser;
 	
@@ -20,7 +19,6 @@ public class HomePage {
 	
 	//####################################################################
 	//metodo de test procurarProdutoPelaHomePage
-	
 	public HomePage buscaCategoria(WebDriver driver, String categoria) {
 		driver.findElement(By.id(categoria+"Img")).click();
 		return this;
@@ -29,7 +27,6 @@ public class HomePage {
 	
 	//####################################################################
 	//metodo de test procuraProdutoPelaLupaDePesquisa
-	
 	@FindBy(how = How.ID, using = "menuSearch")
 	public WebElement clicaLupaPesquisa;
 	

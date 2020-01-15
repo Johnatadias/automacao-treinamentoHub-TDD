@@ -2,13 +2,12 @@ package br.com.rsinet.hub_tdd.test;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestName;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import br.com.rsinet.hub_tdd.page.CategoriaPage;
 import br.com.rsinet.hub_tdd.page.HomePage;
@@ -23,10 +22,8 @@ public class PesquisaProdutoTest {
 	private HomePage homePage;
 	private CategoriaPage categoriaPage;
 	private ProdutoDescricaoPage produtoDescPage;
-	@Rule
-	public TestName testName = new TestName();
 
-	@Before
+	@BeforeMethod
 	public void inicializa() throws Exception {
 		driver = Web.createChromer();
 
@@ -38,7 +35,7 @@ public class PesquisaProdutoTest {
 	}
 
 	@Test
-	public void procurarProdutoPorHomePage() throws Exception {
+	public void deveProcurarProdutoPorHomePage() throws Exception {
 
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
@@ -50,10 +47,32 @@ public class PesquisaProdutoTest {
 		// Validando se produto foi escolhido corretamente
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
 
-		Screenshot.gerarScreenShot(driver, testName);
+		Screenshot.gerarScreenShot(driver, "deveProcurarProdutoPorHomePage");
+	}
+	
+	@Test
+	public void naoDeveAddMaisDezProdutoNoCarrinhoDeCompras() throws Exception {
+
+		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
+		String produto = ExcelUtils.getCellData(2, 1);
+		String quantidadeProduto = "999";
+		String assertMensagem = ExcelUtils.getCellData(4, 2);
+
+		homePage.buscaCategoria(driver, categoriaDoProduto);
+		categoriaPage.escolherProdutoDaCategoria(driver, produto);
+		produtoDescPage.quantidadeProdutos.sendKeys(quantidadeProduto);
+		produtoDescPage.btnAddProduto.click();
+
+		// Validando se produto foi escolhido corretamente
+		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError.getText());
+		
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scrollBy(0,200)", "");
+
+		Screenshot.gerarScreenShot(driver, "naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
 	}
 
-	@After
+	@AfterMethod
 	public void finaliza() {
 		Web.killChromer(driver);
 	}

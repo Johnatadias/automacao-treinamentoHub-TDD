@@ -7,66 +7,60 @@ import org.openqa.selenium.support.How;
 public class FormCadastraUsuarioPage {
 	
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
-	public WebElement userName;
+	private WebElement userName;
 
 	@FindBy(how = How.NAME, using = "emailRegisterPage")
-	public WebElement email;
+	private WebElement email;
 
 	@FindBy(how = How.NAME, using = "passwordRegisterPage")
-	public WebElement password;
+	private WebElement password;
 
 	@FindBy(how = How.NAME, using = "confirm_passwordRegisterPage")
-	public WebElement confirmPassword;
+	private WebElement confirmPassword;
 
 	@FindBy(how = How.NAME, using = "first_nameRegisterPage")
-	public WebElement firstName;
+	private WebElement firstName;
 
 	@FindBy(how = How.NAME, using = "last_nameRegisterPage")
-	public WebElement lastName;
+	private WebElement lastName;
 
 	@FindBy(how = How.NAME, using = "phone_numberRegisterPage")
-	public WebElement phoneNumber;
+	private WebElement phoneNumber;
 
 	@FindBy(how = How.NAME, using = "countryListboxRegisterPage")
-	public WebElement countryList;
+	private WebElement countryList;
 
 	@FindBy(how = How.NAME, using = "cityRegisterPage")
-	public WebElement city;
+	private WebElement city;
 
 	@FindBy(how = How.NAME, using = "addressRegisterPage")
-	public WebElement address;
+	private WebElement address;
 
 	@FindBy(how = How.NAME, using = "state_/_province_/_regionRegisterPage")
-	public WebElement state;
+	private WebElement state;
 
 	@FindBy(how = How.NAME, using = "postal_codeRegisterPage")
-	public WebElement postalCode;
+	private WebElement postalCode;
 
 	@FindBy(how = How.NAME, using = "i_agree")
-	public WebElement aceitarTermo;
+	private WebElement aceitarTermo;
 
 	@FindBy(how = How.ID, using = "register_btnundefined")
-	public WebElement botaoRegistrar;
-
-	@FindBy(how = How.ID, using = "menuUserLink")
-	public WebElement validandoUsuarioCriado;
-
-	@FindBy(how = How.XPATH, using = "//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]")
-	public WebElement validandoUsuarioExistente;
+	private WebElement botaoRegistrar;
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[1]/div/label")
-	public WebElement validandoCampoUserName;
+	private WebElement campoUserName;
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[2]/div/label")
-	public WebElement validandoCampoEmail;
+	private WebElement campoEmail;
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[1]/div/label")
-	public WebElement validandoCampoPass;
+	private WebElement campoPass;
 
 	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[2]/div/label")
-	public WebElement validandoCampoConfirmPass;
+	private WebElement campoConfirmPass;
 
-	public HomePage validandoCamposObrigatorio(String userName, String email, String password, String confirmPass, String firstName,
+	public void cadastrandoUsuario(String userName, String email, String password, String confirmPass, String firstName,
 			String lastName, String phoneNumber, String country, String city, String address, String state, String postalCode) {
 		
 		this.userName.sendKeys(userName);
@@ -81,7 +75,26 @@ public class FormCadastraUsuarioPage {
 		this.address.sendKeys(address);
 		this.state.sendKeys(state);
 		this.postalCode.sendKeys(postalCode);
-		
-		return new HomePage();
+		this.aceitarTermo.click();
+	}
+	
+	public String validandoCampoUserName() {
+		return campoUserName.getText();
+	}
+	
+	public String validandoCampoEmail() {
+		return campoEmail.getText();
+	}
+	
+	public String validandoCampoPass() {
+		return campoPass.getText();
+	}
+	
+	public String validandoCampoConfirmPass() {
+		return campoConfirmPass.getText();
+	}
+	
+	public void clicaBtnRegistrar() {
+		botaoRegistrar.click();
 	}
 }

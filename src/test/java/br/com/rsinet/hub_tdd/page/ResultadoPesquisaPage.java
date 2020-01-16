@@ -9,11 +9,18 @@ public class ResultadoPesquisaPage {
 
 	CategoriaPage categoriaPage = new CategoriaPage();
 
-	public ProdutoDescricaoPage escolherProduto(WebDriver driver, String produto) {
+	//##########################################################
+	//metodo de test procuraProdutoExistentePelaLupaDePesquisa
+	public void escolherProduto(WebDriver driver, String produto) {
 		categoriaPage.escolherProdutoDaCategoria(driver, produto);
-		return new ProdutoDescricaoPage();
 	}
-
+	
+	//##########################################################
+	//metodo de test procuraProdutoInexistentePelaLupaDePesquis
 	@FindBy(how = How.XPATH, using = "//*[@id=\"searchPage\"]/div[3]/div/label/span")
-	public WebElement validandoResult;
+	private WebElement resultPesquisaProduto;
+	
+	public String validandoResult() {
+		return resultPesquisaProduto.getText();
+	}
 }

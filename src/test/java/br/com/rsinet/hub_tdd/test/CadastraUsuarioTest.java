@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -33,53 +32,64 @@ public class CadastraUsuarioTest {
 
 	@BeforeTest
 	public void setConfigReport() {
+		/*setando o reporte e enviando a string definindo o nome do arquivo report deste teste*/
 		extent = Report.setReport("cadastraUsuario_report");
 	}
 	
 	@BeforeMethod
 	public void inicializa() throws Exception {
+		/*setando chromedriver*/
 		driver = Web.createChromer();
 
+		/*definindo as PageFactory usada neste teste*/
 		ExcelUtils.setExcelFile("target/dadosParaTest/massaDeDadosTestes.xlsx", "Cadastro");
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		cadastraUsuario = PageFactory.initElements(driver, FormCadastraUsuarioPage.class);
 
-		homePage.clica_IconeUser.click();
-		homePage.clica_CreateNewAccount.sendKeys(Keys.ENTER);
+		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
+		homePage.clicaIconeUser();
+		homePage.clicaCreateNewAccount();
 	}
 
 	@Test
 	public void deveCadastrarUsuarioNovoTest() throws Exception {
+		/*definindo teste para o report*/
 		test = Report.createTest("deveCadastrarUsuarioNovoTest");
 		
-		cadastraUsuario.userName.sendKeys(ExcelUtils.getCellData(1, 1));
-		cadastraUsuario.email.sendKeys(ExcelUtils.getCellData(2, 1));
-		cadastraUsuario.password.sendKeys(ExcelUtils.getCellData(3, 1));
-		cadastraUsuario.confirmPassword.sendKeys(ExcelUtils.getCellData(4, 1));
-		cadastraUsuario.firstName.sendKeys(ExcelUtils.getCellData(5, 1));
-		cadastraUsuario.lastName.sendKeys(ExcelUtils.getCellData(6, 1));
-		cadastraUsuario.phoneNumber.sendKeys(ExcelUtils.getCellData(7, 1));
-		cadastraUsuario.countryList.sendKeys(ExcelUtils.getCellData(8, 1));
-		cadastraUsuario.city.sendKeys(ExcelUtils.getCellData(9, 1));
-		cadastraUsuario.address.sendKeys(ExcelUtils.getCellData(10, 1));
-		cadastraUsuario.state.sendKeys(ExcelUtils.getCellData(11, 1));
-		cadastraUsuario.postalCode.sendKeys(ExcelUtils.getCellData(12, 1));
-		cadastraUsuario.aceitarTermo.click();
-		cadastraUsuario.botaoRegistrar.click();
+		/*massa para o teste*/
+		String userName = ExcelUtils.getCellData(1, 1);
+		String email = ExcelUtils.getCellData(2, 1);
+		String password = ExcelUtils.getCellData(3, 1);
+		String confirmPassword = ExcelUtils.getCellData(4, 1);
+		String firstName = ExcelUtils.getCellData(5, 1);
+		String lastName = ExcelUtils.getCellData(6, 1);
+		String phoneNumber = ExcelUtils.getCellData(7, 1);
+		String country = ExcelUtils.getCellData(8, 1);
+		String city = ExcelUtils.getCellData(9, 1);
+		String address = ExcelUtils.getCellData(10, 1);
+		String state = ExcelUtils.getCellData(11, 1);
+		String postalCode = ExcelUtils.getCellData(12, 1);
 
-		// Validando usuario se foi criado com sucesso
+		/*ações*/
+		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
+				lastName, phoneNumber, country, city, address, state, postalCode);
+		cadastraUsuario.clicaBtnRegistrar();
+
+		/*setando um tempo para realizar o assertEquals*/
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
-
+		
+		/*Validando usuario se foi criado com sucesso, recenbendo massa de dados pelo excel*/
 		String assertAccount = ExcelUtils.getCellData(13, 1);
-
-		assertEquals(assertAccount, cadastraUsuario.validandoUsuarioCriado.getText());
+		assertEquals(assertAccount, homePage.validandoUsuarioCriado());
 	}
 
 	@Test
 	public void deveValidarCamposObrigatorioDoCadastroTest() throws Exception {
+		/*definindo teste para o report*/
 		test = Report.createTest("deveValidarCamposObrigatorioDoCadastroTest");
 		
+		/*massa para o teste*/
 		String userName = "";
 		String email = "";
 		String password = "";
@@ -93,29 +103,33 @@ public class CadastraUsuarioTest {
 		String state = ExcelUtils.getCellData(11, 1);
 		String postalCode = ExcelUtils.getCellData(12, 1);
 
-		cadastraUsuario.validandoCamposObrigatorio(userName, email, password, confirmPassword, firstName ,
+		/*ações*/
+		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
 				lastName, phoneNumber, country, city, address, state, postalCode);
 		
+		/*setando um tempo para realizar o assertEquals*/
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("scrollBy(0,-350)", "");
 
-		// Validando campos obrigatorio para cadastro
+		/*Validando campos obrigatorio para cadastro, recenbendo massa de dados pelo excel*/
 		String assertUserName = ExcelUtils.getCellData(1, 3);
 		String assertEmail = ExcelUtils.getCellData(2, 3);
 		String assertPassword = ExcelUtils.getCellData(3, 3);
 		String assertConfirmPassword = ExcelUtils.getCellData(4, 3);
 
-		assertEquals(assertUserName, cadastraUsuario.validandoCampoUserName.getText());
-		assertEquals(assertEmail, cadastraUsuario.validandoCampoEmail.getText());
-		assertEquals(assertPassword, cadastraUsuario.validandoCampoPass.getText());
-		assertEquals(assertConfirmPassword, cadastraUsuario.validandoCampoConfirmPass.getText());
+		assertEquals(assertUserName, cadastraUsuario.validandoCampoUserName());
+		assertEquals(assertEmail, cadastraUsuario.validandoCampoEmail());
+		assertEquals(assertPassword, cadastraUsuario.validandoCampoPass());
+		assertEquals(assertConfirmPassword, cadastraUsuario.validandoCampoConfirmPass());
 	}
 
 	@AfterMethod
 	public void finaliza(ITestResult result) throws IOException {
+		/*condição para definir o status do teste no report*/
 		Report.statusReported(test, result, driver);
 
-		Report.killExtent(extent);
-		Web.killChromer(driver);
+		/*fechando*/
+		Report.quitExtent(extent);
+		Web.quitChrome(driver);
 	}
 }

@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="29738" started-at="2020-01-16T11:23:06Z" finished-at="2020-01-16T11:23:36Z">
+  <suite name="Default suite" duration-ms="29770" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:22Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="29738" started-at="2020-01-16T11:23:06Z" finished-at="2020-01-16T11:23:36Z">
+    <test name="Default test" duration-ms="29770" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:22Z">
       <class name="br.com.rsinet.hub_tdd.test.CadastraUsuarioTest">
-        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="setConfigReport" is-config="true" duration-ms="115" started-at="2020-01-16T11:23:06Z" finished-at="2020-01-16T11:23:06Z">
+        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="setConfigReport" is-config="true" duration-ms="115" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:32:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setConfigReport -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="11816" started-at="2020-01-16T11:23:06Z" finished-at="2020-01-16T11:23:18Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="11748" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveCadastrarUsuarioNovoTest" duration-ms="3235" started-at="2020-01-16T11:23:18Z" finished-at="2020-01-16T11:23:21Z">
+        <test-method status="PASS" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveCadastrarUsuarioNovoTest" duration-ms="3257" started-at="2020-01-16T19:33:04Z" finished-at="2020-01-16T19:33:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveCadastrarUsuarioNovoTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="1377" started-at="2020-01-16T11:23:21Z" finished-at="2020-01-16T11:23:23Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="1364" started-at="2020-01-16T19:33:07Z" finished-at="2020-01-16T19:33:08Z">
           <params>
             <param index="0">
               <value>
@@ -30,15 +30,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="10509" started-at="2020-01-16T11:23:23Z" finished-at="2020-01-16T11:23:33Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="10517" started-at="2020-01-16T19:33:08Z" finished-at="2020-01-16T19:33:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveValidarCamposObrigatorioDoCadastroTest" duration-ms="1708" started-at="2020-01-16T11:23:33Z" finished-at="2020-01-16T11:23:35Z">
+        <test-method status="PASS" signature="deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveValidarCamposObrigatorioDoCadastroTest" duration-ms="1812" started-at="2020-01-16T19:33:19Z" finished-at="2020-01-16T19:33:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveValidarCamposObrigatorioDoCadastroTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="963" started-at="2020-01-16T11:23:35Z" finished-at="2020-01-16T11:23:36Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="945" started-at="2020-01-16T19:33:21Z" finished-at="2020-01-16T19:33:22Z">
           <params>
             <param index="0">
               <value>

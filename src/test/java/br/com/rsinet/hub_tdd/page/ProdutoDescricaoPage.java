@@ -7,14 +7,33 @@ import org.openqa.selenium.support.How;
 public class ProdutoDescricaoPage {
 	
 	@FindBy(how = How.XPATH, using = "//*[@id=\"Description\"]/h1")
-	public WebElement validandoProdutoEscolhido;
+	private WebElement produtoEscolhido;
+	
+	public String validandoProdutoEscolhido() {
+		return produtoEscolhido.getText();
+	}	
+	
+	//##########################################################
+	//metodo de test naoDeveAddMaisDezProdutoNoCarrinhoDeCompras
 	
 	@FindBy(how = How.NAME, using = "quantity")
-	public WebElement quantidadeProdutos;
+	private WebElement quantidadeProdutos;
 	
 	@FindBy(how = How.NAME, using = "save_to_cart")
-	public WebElement btnAddProduto;
+	private WebElement btnAddProduto;
+	
+	public void inserindoQtd (String qtd) {
+		quantidadeProdutos.sendKeys(qtd);
+	}
+	
+	public void clicarBtnAddProduto() {
+		btnAddProduto.click();
+	}
 	
 	@FindBy(how = How.XPATH, using = "//*[@id=\"productProperties\"]/label")
-	public WebElement validandoMensagemError;
+	private WebElement MensagemError;
+	
+	public String validandoMensagemError() {
+		return MensagemError.getText();
+	}
 }

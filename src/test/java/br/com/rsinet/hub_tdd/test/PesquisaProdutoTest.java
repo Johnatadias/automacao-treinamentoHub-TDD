@@ -34,51 +34,61 @@ public class PesquisaProdutoTest {
 
 	@BeforeTest
 	public void setConfigReport() {
+		/*setando o reporte e enviando a string definindo o nome do arquivo report deste teste*/
 		extent = Report.setReport("pesquisaProduto_report");
 	}
 
 	@BeforeMethod
 	public void inicializa() throws Exception {
+		/*setando chromedriver*/
 		driver = Web.createChromer();
 
+		/*definindo as PageFactory usada neste teste*/
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		categoriaPage = PageFactory.initElements(driver, CategoriaPage.class);
 		produtoDescPage = PageFactory.initElements(driver, ProdutoDescricaoPage.class);
 
+		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("target/dadosParaTest/massaDeDadosTestes.xlsx", "Produtos");
 	}
 
 	@Test
 	public void deveProcurarProdutoPorHomePage() throws Exception {
+		/*definindo teste para o report*/
 		test = Report.createTest("deveProcurarProdutoPorHomePage");
 
+		/*massa para o teste*/
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
 		String assertProduto = ExcelUtils.getCellData(2, 2);
 
+		/*ações*/
 		homePage.buscaCategoria(driver, categoriaDoProduto);
 		categoriaPage.escolherProdutoDaCategoria(driver, produto);
 
-		// Validando se produto foi escolhido corretamente
-		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
+		/*Validando se produto foi escolhido corretamente*/
+		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido());
 	}
 
 	@Test
 	public void naoDeveAddMaisDezProdutoNoCarrinhoDeCompras() throws Exception {
+		/*definindo teste para o report*/
 		test = Report.createTest("naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
 
+		/*massa para o teste*/
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
 		String quantidadeProduto = ExcelUtils.getCellData(4, 3);
 		String assertMensagem = ExcelUtils.getCellData(4, 2);
 
+		/*ações*/
 		homePage.buscaCategoria(driver, categoriaDoProduto);
 		categoriaPage.escolherProdutoDaCategoria(driver, produto);
-		produtoDescPage.quantidadeProdutos.sendKeys(quantidadeProduto);
-		produtoDescPage.btnAddProduto.click();
+		produtoDescPage.inserindoQtd(quantidadeProduto);
+		produtoDescPage.clicarBtnAddProduto();
 
-		// Validando se produto foi escolhido corretamente
-		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError.getText());
+		/*Validando se produto foi escolhido corretamente*/
+		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError());
 
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scrollBy(0,200)", "");
@@ -86,9 +96,11 @@ public class PesquisaProdutoTest {
 
 	@AfterMethod
 	public void finaliza(ITestResult result) throws IOException {
+		/*condição para definir o status do teste no report*/
 		Report.statusReported(test, result, driver);
 
-		Report.killExtent(extent);
-		Web.killChromer(driver);
+		/*fechando*/
+		Report.quitExtent(extent);
+		Web.quitChrome(driver);
 	}
 }

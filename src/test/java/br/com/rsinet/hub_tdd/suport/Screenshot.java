@@ -12,10 +12,12 @@ import org.openqa.selenium.WebDriver;
 
 public class Screenshot {
 	
+	/*gerando data e hora atual para adicionar no nome da screenshot*/
 	public static String getTimeStamp() {
 		return new SimpleDateFormat("dd_MM_yyyy HH.mm.ss").format(new Date());
 	}
 
+	/*gerando screenshot*/
 	public static String gerarScreenShot(WebDriver driver, String nome) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 

@@ -17,6 +17,7 @@ public class Report {
 	public static ExtentReports extent;
 	public static ExtentTest test;
 
+	/*metodo de configuranções nescessarias para manipular dados via excel*/
 	public static ExtentReports setReport(String nomeReport) {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reportRelatorio/"+nomeReport+".html");
 
@@ -35,11 +36,13 @@ public class Report {
 		return extent;
 	}
 
+	/*metodo para criar os casos de testes para serem vistos no report final*/
 	public static ExtentTest createTest(String testName) {
 		test = extent.createTest(testName);
 		return test;
 	}
 
+	/*metodo que final para emitir o status do report*/
 	public static void statusReported(ExtentTest test, ITestResult result, WebDriver driver) throws IOException {
 
 		String screenPath = Screenshot.gerarScreenShot(driver, result.getName());
@@ -57,7 +60,8 @@ public class Report {
 		}
 	}
 
-	public static void killExtent(ExtentReports extent) {
+	/*fechando*/
+	public static void quitExtent(ExtentReports extent) {
 		extent.flush();
 	}
 }

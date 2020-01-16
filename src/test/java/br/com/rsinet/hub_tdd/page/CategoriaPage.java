@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class CategoriaPage {
 	
-	public ProdutoDescricaoPage escolherProdutoDaCategoria(WebDriver driver, String produto) {
+	public void escolherProdutoDaCategoria(WebDriver driver, String produto) {
 		driver.findElement(By.linkText(produto)).click();
-		return new ProdutoDescricaoPage();
 	}
 }

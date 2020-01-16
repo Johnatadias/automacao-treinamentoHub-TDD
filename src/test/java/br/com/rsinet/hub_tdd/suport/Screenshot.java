@@ -19,7 +19,7 @@ public class Screenshot {
 	public static String gerarScreenShot(WebDriver driver, String nome) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-		String destino = "target/reportScreenshot/"+ nome + "-" + getTimeStamp() + ".png";
+		String destino = System.getProperty("user.dir") + "/target/reportScreenshot/"+ nome + "-" + getTimeStamp() + ".png";
 		
 		try {
 			FileUtils.copyFile(file, new File(destino));

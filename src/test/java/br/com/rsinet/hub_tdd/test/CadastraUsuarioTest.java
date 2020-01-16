@@ -2,6 +2,8 @@ package br.com.rsinet.hub_tdd.test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +21,6 @@ import br.com.rsinet.hub_tdd.page.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.Screenshot;
 import br.com.rsinet.hub_tdd.suport.Web;
 
 public class CadastraUsuarioTest {
@@ -111,9 +112,8 @@ public class CadastraUsuarioTest {
 	}
 
 	@AfterMethod
-	public void finaliza(ITestResult result) {
-		Screenshot.gerarScreenShot(driver, result.getName());
-		Report.statusReported(test, result);
+	public void finaliza(ITestResult result) throws IOException {
+		Report.statusReported(test, result, driver);
 
 		Report.killExtent(extent);
 		Web.killChromer(driver);

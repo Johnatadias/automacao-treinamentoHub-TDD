@@ -1,7 +1,8 @@
 package br.com.rsinet.hub_tdd.test;
 
-
 import static org.testng.Assert.assertEquals;
+
+import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,6 @@ import br.com.rsinet.hub_tdd.page.HomePage;
 import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.Screenshot;
 import br.com.rsinet.hub_tdd.suport.Web;
 
 public class PesquisaProdutoTest {
@@ -36,7 +36,7 @@ public class PesquisaProdutoTest {
 	public void setConfigReport() {
 		extent = Report.setReport("pesquisaProduto_report");
 	}
-	
+
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		driver = Web.createChromer();
@@ -51,7 +51,7 @@ public class PesquisaProdutoTest {
 	@Test
 	public void deveProcurarProdutoPorHomePage() throws Exception {
 		test = Report.createTest("deveProcurarProdutoPorHomePage");
-		
+
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
 		String assertProduto = ExcelUtils.getCellData(2, 2);
@@ -62,11 +62,11 @@ public class PesquisaProdutoTest {
 		// Validando se produto foi escolhido corretamente
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido.getText());
 	}
-	
+
 	@Test
 	public void naoDeveAddMaisDezProdutoNoCarrinhoDeCompras() throws Exception {
 		test = Report.createTest("naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
-		
+
 		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
 		String produto = ExcelUtils.getCellData(2, 1);
 		String quantidadeProduto = ExcelUtils.getCellData(4, 3);
@@ -79,15 +79,14 @@ public class PesquisaProdutoTest {
 
 		// Validando se produto foi escolhido corretamente
 		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError.getText());
-		
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scrollBy(0,200)", "");
 	}
 
 	@AfterMethod
-	public void finaliza(ITestResult result) {
-		Screenshot.gerarScreenShot(driver, result.getName());
-		Report.statusReported(test, result);
+	public void finaliza(ITestResult result) throws IOException {
+		Report.statusReported(test, result, driver);
 
 		Report.killExtent(extent);
 		Web.killChromer(driver);

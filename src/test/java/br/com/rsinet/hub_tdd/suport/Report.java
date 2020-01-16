@@ -1,5 +1,8 @@
 package br.com.rsinet.hub_tdd.suport;
 
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -37,15 +40,20 @@ public class Report {
 		return test;
 	}
 
-	public static void statusReported(ExtentTest test, ITestResult result) {
+	public static void statusReported(ExtentTest test, ITestResult result, WebDriver driver) throws IOException {
 
+		String screenPath = Screenshot.gerarScreenShot(driver, result.getName());
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Caso de teste FAILED: " + result.getName());
 			test.log(Status.FAIL, "Caso de teste FAILED: " + result.getThrowable());
+			
+			test.addScreenCaptureFromPath(screenPath);
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			test.log(Status.SKIP, "Caso de teste SKIPPED: " + result.getName());
+			test.addScreenCaptureFromPath(screenPath);
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, "Caso de teste PASSED: " + result.getName());
+			test.addScreenCaptureFromPath(screenPath);
 		}
 	}
 

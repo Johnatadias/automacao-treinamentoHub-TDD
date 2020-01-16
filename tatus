@@ -1,0 +1,35 @@
+[33mcommit 4aa4b68bf9b725ffd0705e415907c01711f76dc0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: johnata <johnata.santos@rsinet.com.br>
+Date:   Wed Jan 15 17:07:24 2020 -0300
+
+    Implementação do report dos casos de testes
+
+[33mcommit eae4265b6b6340cc22fa14edb0f0b98459253a73[m
+Author: johnata <johnata.santos@rsinet.com.br>
+Date:   Wed Jan 15 10:41:29 2020 -0300
+
+    Substituição do JUnit pelo TestNG
+
+[33mcommit 3e1b2d586a10fa1dc28d258f743a63f7b8111e97[m
+Author: johnata <johnata.santos@rsinet.com.br>
+Date:   Tue Jan 14 15:24:25 2020 -0300
+
+    Refatoração e implementação da screenshot
+
+[33mcommit 62876c33d8b12d2db629a1de18d99a19e26aa9ce[m
+Author: johnata <johnata.santos@rsinet.com.br>
+Date:   Mon Jan 13 17:37:38 2020 -0300
+
+    Atualização em alguns cenarios
+
+[33mcommit e6fe2781c6185c1db653364a516c5a553394d5de[m
+Author: johnata <johnata.santos@rsinet.com.br>
+Date:   Mon Jan 13 16:38:27 2020 -0300
+
+    Projeto avaliação TDD - Implementação de casos de testes no padrão pageObject
+
+[33mcommit eba7698bbec20eb880a465ce15e6519da669720f[m
+Author: Johnatadias <47117390+Johnatadias@users.noreply.github.com>
+Date:   Mon Jan 13 16:11:50 2020 -0300
+
+    Initial commit

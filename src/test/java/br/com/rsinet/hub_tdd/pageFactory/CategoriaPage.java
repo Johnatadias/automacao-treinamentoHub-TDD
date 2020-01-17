@@ -1,4 +1,4 @@
-package br.com.rsinet.hub_tdd.page;
+package br.com.rsinet.hub_tdd.pageFactory;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

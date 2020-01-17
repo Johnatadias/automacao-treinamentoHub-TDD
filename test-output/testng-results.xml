@@ -1,55 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="29770" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:22Z">
+  <suite started-at="2020-01-17T00:30:40Z" name="Default suite" finished-at="2020-01-17T00:31:11Z" duration-ms="31127">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="29770" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:22Z">
-      <class name="br.com.rsinet.hub_tdd.test.CadastraUsuarioTest">
-        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="setConfigReport" is-config="true" duration-ms="115" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:32:52Z">
+    <test started-at="2020-01-17T00:30:40Z" name="Default test" finished-at="2020-01-17T00:31:11Z" duration-ms="31127">
+      <class name="br.com.rsinet.hub_tdd.test.FiltraProdutoTest">
+        <test-method is-config="true" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:30:40Z" name="setConfigReport" finished-at="2020-01-17T00:30:40Z" duration-ms="221" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setConfigReport -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="11748" started-at="2020-01-16T19:32:52Z" finished-at="2020-01-16T19:33:04Z">
+        <test-method is-config="true" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:30:40Z" name="inicializa" finished-at="2020-01-17T00:30:52Z" duration-ms="11834" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveCadastrarUsuarioNovoTest" duration-ms="3257" started-at="2020-01-16T19:33:04Z" finished-at="2020-01-16T19:33:07Z">
+        <test-method signature="procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:30:52Z" name="procuraProdutoExistentePelaLupaDePesquisa" finished-at="2020-01-17T00:30:54Z" duration-ms="2316" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <a class="productName ng-binding">...</a> is not clickable at point (643, 519). Other element would receive the click: <span class="ng-binding">...</span>
+  (Session info: chrome=79.0.3945.130)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-U784KFP', ip: '10.0.0.104', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\Johna\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53787}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7152afca8aac16bdaff52ac9e2fe954b]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <a class="productName ng-binding">...</a> is not clickable at point (643, 519). Other element would receive the click: <span class="ng-binding">...</span>
+  (Session info: chrome=79.0.3945.130)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-U784KFP', ip: '10.0.0.104', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\Johna\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53787}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7152afca8aac16bdaff52ac9e2fe954b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at br.com.rsinet.hub_tdd.pageFactory.CategoriaPage.escolherProdutoDaCategoria(CategoriaPage.java:9)
+at br.com.rsinet.hub_tdd.pageFactory.ResultadoPesquisaPage.escolherProduto(ResultadoPesquisaPage.java:14)
+at br.com.rsinet.hub_tdd.test.FiltraProdutoTest.procuraProdutoExistentePelaLupaDePesquisa(FiltraProdutoTest.java:69)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deveCadastrarUsuarioNovoTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="1364" started-at="2020-01-16T19:33:07Z" finished-at="2020-01-16T19:33:08Z">
+        </test-method> <!-- procuraProdutoExistentePelaLupaDePesquisa -->
+        <test-method is-config="true" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:30:54Z" name="finaliza" finished-at="2020-01-17T00:30:56Z" duration-ms="1559" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveCadastrarUsuarioNovoTest status=SUCCESS method=CadastraUsuarioTest.deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137] output={null}]]]>
+                <![CDATA[[TestResult name=procuraProdutoExistentePelaLupaDePesquisa status=FAILURE method=FiltraProdutoTest.procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="inicializa" is-config="true" duration-ms="10517" started-at="2020-01-16T19:33:08Z" finished-at="2020-01-16T19:33:19Z">
+        <test-method is-config="true" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:30:56Z" name="inicializa" finished-at="2020-01-17T00:31:07Z" duration-ms="10911" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="deveValidarCamposObrigatorioDoCadastroTest" duration-ms="1812" started-at="2020-01-16T19:33:19Z" finished-at="2020-01-16T19:33:21Z">
+        <test-method signature="procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:31:07Z" name="procuraProdutoInexistentePelaLupaDePesquisa" finished-at="2020-01-17T00:31:09Z" duration-ms="2455" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deveValidarCamposObrigatorioDoCadastroTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137]" name="finaliza" is-config="true" duration-ms="945" started-at="2020-01-16T19:33:21Z" finished-at="2020-01-16T19:33:22Z">
+        </test-method> <!-- procuraProdutoInexistentePelaLupaDePesquisa -->
+        <test-method is-config="true" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a]" started-at="2020-01-17T00:31:09Z" name="finaliza" finished-at="2020-01-17T00:31:11Z" duration-ms="1810" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveValidarCamposObrigatorioDoCadastroTest status=SUCCESS method=CadastraUsuarioTest.deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@685cb137] output={null}]]]>
+                <![CDATA[[TestResult name=procuraProdutoInexistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@6ab778a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-      </class> <!-- br.com.rsinet.hub_tdd.test.CadastraUsuarioTest -->
+      </class> <!-- br.com.rsinet.hub_tdd.test.FiltraProdutoTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

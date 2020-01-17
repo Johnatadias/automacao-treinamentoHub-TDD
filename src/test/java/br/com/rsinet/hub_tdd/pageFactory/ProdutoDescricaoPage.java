@@ -1,12 +1,13 @@
-package br.com.rsinet.hub_tdd.page;
+package br.com.rsinet.hub_tdd.pageFactory;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 public class ProdutoDescricaoPage {
 	
-	@FindBy(how = How.XPATH, using = "//*[@id=\"Description\"]/h1")
+	@FindBy(xpath = "//*[@id=\"Description\"]/h1")
 	private WebElement produtoEscolhido;
 	
 	public String validandoProdutoEscolhido() {
@@ -14,12 +15,12 @@ public class ProdutoDescricaoPage {
 	}	
 	
 	//##########################################################
-	//metodo de test naoDeveAddMaisDezProdutoNoCarrinhoDeCompras
+	/*metodo de test naoDeveAddMaisDezProdutoNoCarrinhoDeCompras*/
 	
-	@FindBy(how = How.NAME, using = "quantity")
+	@FindBy(name = "quantity")
 	private WebElement quantidadeProdutos;
 	
-	@FindBy(how = How.NAME, using = "save_to_cart")
+	@FindBy(name = "save_to_cart")
 	private WebElement btnAddProduto;
 	
 	public void inserindoQtd (String qtd) {
@@ -30,10 +31,14 @@ public class ProdutoDescricaoPage {
 		btnAddProduto.click();
 	}
 	
-	@FindBy(how = How.XPATH, using = "//*[@id=\"productProperties\"]/label")
+	@FindBy(xpath = "//*[@id=\"productProperties\"]/label")
 	private WebElement MensagemError;
 	
-	public String validandoMensagemError() {
+	public String validandoMensagemError(WebDriver driver) {
+		/*usando o scroll para obter a mensagem de erro*/
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("scrollBy(0,200)", "");
+		
 		return MensagemError.getText();
 	}
 }

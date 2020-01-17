@@ -16,8 +16,8 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub_tdd.page.FormCadastraUsuarioPage;
-import br.com.rsinet.hub_tdd.page.HomePage;
+import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
+import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Web;
@@ -42,11 +42,13 @@ public class CadastraUsuarioTest {
 		driver = Web.createChromer();
 
 		/*definindo as PageFactory usada neste teste*/
-		ExcelUtils.setExcelFile("target/dadosParaTest/massaDeDadosTestes.xlsx", "Cadastro");
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		cadastraUsuario = PageFactory.initElements(driver, FormCadastraUsuarioPage.class);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
+		ExcelUtils.setExcelFile("Cadastro");
+		
+		/*ação para iniciar ambos testes desta classe*/
 		homePage.clicaIconeUser();
 		homePage.clicaCreateNewAccount();
 	}
@@ -74,14 +76,10 @@ public class CadastraUsuarioTest {
 		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
 				lastName, phoneNumber, country, city, address, state, postalCode);
 		cadastraUsuario.clicaBtnRegistrar();
-
-		/*setando um tempo para realizar o assertEquals*/
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
 		
 		/*Validando usuario se foi criado com sucesso, recenbendo massa de dados pelo excel*/
 		String assertAccount = ExcelUtils.getCellData(13, 1);
-		assertEquals(assertAccount, homePage.validandoUsuarioCriado());
+		assertEquals(assertAccount, homePage.validandoUsuarioCriado(driver));
 	}
 
 	@Test
@@ -109,7 +107,7 @@ public class CadastraUsuarioTest {
 		
 		/*setando um tempo para realizar o assertEquals*/
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scrollBy(0,-350)", "");
+		jse.executeScript("scrollBy(0,-380)", "");
 
 		/*Validando campos obrigatorio para cadastro, recenbendo massa de dados pelo excel*/
 		String assertUserName = ExcelUtils.getCellData(1, 3);

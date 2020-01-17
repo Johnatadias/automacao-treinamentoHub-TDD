@@ -1,63 +1,62 @@
-package br.com.rsinet.hub_tdd.page;
+package br.com.rsinet.hub_tdd.pageFactory;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 public class FormCadastraUsuarioPage {
 	
-	@FindBy(how = How.NAME, using = "usernameRegisterPage")
+	@FindBy(name = "usernameRegisterPage")
 	private WebElement userName;
 
-	@FindBy(how = How.NAME, using = "emailRegisterPage")
+	@FindBy(name = "emailRegisterPage")
 	private WebElement email;
 
-	@FindBy(how = How.NAME, using = "passwordRegisterPage")
+	@FindBy(name = "passwordRegisterPage")
 	private WebElement password;
 
-	@FindBy(how = How.NAME, using = "confirm_passwordRegisterPage")
+	@FindBy(name = "confirm_passwordRegisterPage")
 	private WebElement confirmPassword;
 
-	@FindBy(how = How.NAME, using = "first_nameRegisterPage")
+	@FindBy(name = "first_nameRegisterPage")
 	private WebElement firstName;
 
-	@FindBy(how = How.NAME, using = "last_nameRegisterPage")
+	@FindBy(name = "last_nameRegisterPage")
 	private WebElement lastName;
 
-	@FindBy(how = How.NAME, using = "phone_numberRegisterPage")
+	@FindBy(name = "phone_numberRegisterPage")
 	private WebElement phoneNumber;
 
-	@FindBy(how = How.NAME, using = "countryListboxRegisterPage")
+	@FindBy(name = "countryListboxRegisterPage")
 	private WebElement countryList;
 
-	@FindBy(how = How.NAME, using = "cityRegisterPage")
+	@FindBy(name = "cityRegisterPage")
 	private WebElement city;
 
-	@FindBy(how = How.NAME, using = "addressRegisterPage")
+	@FindBy(name = "addressRegisterPage")
 	private WebElement address;
 
-	@FindBy(how = How.NAME, using = "state_/_province_/_regionRegisterPage")
+	@FindBy(name = "state_/_province_/_regionRegisterPage")
 	private WebElement state;
 
-	@FindBy(how = How.NAME, using = "postal_codeRegisterPage")
+	@FindBy(name = "postal_codeRegisterPage")
 	private WebElement postalCode;
 
-	@FindBy(how = How.NAME, using = "i_agree")
+	@FindBy(name = "i_agree")
 	private WebElement aceitarTermo;
 
-	@FindBy(how = How.ID, using = "register_btnundefined")
+	@FindBy(id = "register_btnundefined")
 	private WebElement botaoRegistrar;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[1]/div/label")
+	@FindBy(xpath = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[1]/div/label")
 	private WebElement campoUserName;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[2]/div/label")
+	@FindBy(xpath = "//*[@id=\"formCover\"]/div[1]/div[1]/sec-view[2]/div/label")
 	private WebElement campoEmail;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[1]/div/label")
+	@FindBy(xpath = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[1]/div/label")
 	private WebElement campoPass;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[2]/div/label")
+	@FindBy(xpath = "//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[2]/div/label")
 	private WebElement campoConfirmPass;
 
 	public void cadastrandoUsuario(String userName, String email, String password, String confirmPass, String firstName,

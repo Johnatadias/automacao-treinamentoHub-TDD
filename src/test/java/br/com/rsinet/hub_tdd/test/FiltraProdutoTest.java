@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -16,9 +15,9 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub_tdd.page.HomePage;
-import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
-import br.com.rsinet.hub_tdd.page.ResultadoPesquisaPage;
+import br.com.rsinet.hub_tdd.pageFactory.HomePage;
+import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
+import br.com.rsinet.hub_tdd.pageFactory.ResultadoPesquisaPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Web;
@@ -49,7 +48,7 @@ public class FiltraProdutoTest {
 		produtoDescPage = PageFactory.initElements(driver, ProdutoDescricaoPage.class);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
-		ExcelUtils.setExcelFile("target/dadosParaTest/massaDeDadosTestes.xlsx", "Produtos");
+		ExcelUtils.setExcelFile("Produtos");
 
 		/*ação para iniciar ambos testes desta classe*/
 		homePage.clicaLupaPesquisa();
@@ -86,11 +85,7 @@ public class FiltraProdutoTest {
 		homePage.inserirNomeCategoria(categoriaDoProduto);
 
 		/*Validandp se produto não foi encontrado*/
-		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult());
-
-		/*setando um tempo para poder gerar a screenshot por completa*/
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
+		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult(driver));
 	}
 
 	@AfterMethod

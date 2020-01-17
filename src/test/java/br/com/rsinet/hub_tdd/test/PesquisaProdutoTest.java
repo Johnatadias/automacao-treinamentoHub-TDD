@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -16,9 +15,9 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import br.com.rsinet.hub_tdd.page.CategoriaPage;
-import br.com.rsinet.hub_tdd.page.HomePage;
-import br.com.rsinet.hub_tdd.page.ProdutoDescricaoPage;
+import br.com.rsinet.hub_tdd.pageFactory.CategoriaPage;
+import br.com.rsinet.hub_tdd.pageFactory.HomePage;
+import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.suport.Web;
@@ -49,7 +48,7 @@ public class PesquisaProdutoTest {
 		produtoDescPage = PageFactory.initElements(driver, ProdutoDescricaoPage.class);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
-		ExcelUtils.setExcelFile("target/dadosParaTest/massaDeDadosTestes.xlsx", "Produtos");
+		ExcelUtils.setExcelFile("Produtos");
 	}
 
 	@Test
@@ -88,10 +87,7 @@ public class PesquisaProdutoTest {
 		produtoDescPage.clicarBtnAddProduto();
 
 		/*Validando se produto foi escolhido corretamente*/
-		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError());
-
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("scrollBy(0,200)", "");
+		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError(driver));
 	}
 
 	@AfterMethod

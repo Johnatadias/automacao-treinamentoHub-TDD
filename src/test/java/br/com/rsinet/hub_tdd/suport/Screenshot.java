@@ -21,6 +21,7 @@ public class Screenshot {
 	public static String gerarScreenShot(WebDriver driver, String nome) {
 		File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
+		/*definindo destino e nome da screenshot*/
 		String destino = System.getProperty("user.dir") + "/target/reportScreenshot/"+ nome + "-" + getTimeStamp() + ".png";
 		
 		try {

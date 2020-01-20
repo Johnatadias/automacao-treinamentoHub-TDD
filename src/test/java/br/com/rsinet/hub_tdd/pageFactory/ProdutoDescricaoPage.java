@@ -4,9 +4,15 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class ProdutoDescricaoPage {
+public class ProdutoDescricaoPage extends BasePage{
 	
+	public ProdutoDescricaoPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(xpath = "//*[@id=\"Description\"]/h1")
 	private WebElement produtoEscolhido;
 	
@@ -34,7 +40,7 @@ public class ProdutoDescricaoPage {
 	@FindBy(xpath = "//*[@id=\"productProperties\"]/label")
 	private WebElement MensagemError;
 	
-	public String validandoMensagemError(WebDriver driver) {
+	public String validandoMensagemError() {
 		/*usando o scroll para obter a mensagem de erro*/
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("scrollBy(0,200)", "");

@@ -4,8 +4,8 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +20,7 @@ import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.pageFactory.ResultadoPesquisaPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.Web;
+import br.com.rsinet.hub_tdd.suport.WebFactory;
 
 public class FiltraProdutoTest {
 
@@ -40,12 +40,12 @@ public class FiltraProdutoTest {
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
-		driver = Web.createChromer();
+		driver = WebFactory.createChromer();
 
 		/*definindo as PageFactory usada neste teste*/
-		homePage = PageFactory.initElements(driver, HomePage.class);
-		resultadoPesquisaPage = PageFactory.initElements(driver, ResultadoPesquisaPage.class);
-		produtoDescPage = PageFactory.initElements(driver, ProdutoDescricaoPage.class);
+		homePage = new HomePage(driver);
+		resultadoPesquisaPage = new ResultadoPesquisaPage(driver);
+		produtoDescPage = new ProdutoDescricaoPage(driver);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Produtos");
@@ -66,7 +66,8 @@ public class FiltraProdutoTest {
 
 		/*ação*/
 		homePage.inserirNomeCategoria(categoriaDoProduto);
-		resultadoPesquisaPage.escolherProduto(driver, produto);
+		driver.findElement(By.xpath("//*[@id=\"search\"]/div/div/img")).click();
+		resultadoPesquisaPage.escolherProduto().escolherProdutoDaCategoria(produto);;
 
 		/*Validandp se produto foi escolhido corretamente*/
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido());
@@ -85,7 +86,7 @@ public class FiltraProdutoTest {
 		homePage.inserirNomeCategoria(categoriaDoProduto);
 
 		/*Validandp se produto não foi encontrado*/
-		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult(driver));
+		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult());
 	}
 
 	@AfterMethod
@@ -95,6 +96,6 @@ public class FiltraProdutoTest {
 
 		/*fechando*/
 		Report.quitExtent(extent);
-		Web.quitChrome(driver);
+		WebFactory.quitChrome(driver);
 	}
 }

@@ -1,10 +1,17 @@
 package br.com.rsinet.hub_tdd.pageFactory;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class FormCadastraUsuarioPage {
+public class FormCadastraUsuarioPage extends BasePage{
 	
+	public FormCadastraUsuarioPage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
 	@FindBy(name = "usernameRegisterPage")
 	private WebElement userName;
 
@@ -93,7 +100,9 @@ public class FormCadastraUsuarioPage {
 		return campoConfirmPass.getText();
 	}
 	
-	public void clicaBtnRegistrar() {
+	public HomePage clicaBtnRegistrar() {
 		botaoRegistrar.click();
+		
+		return new HomePage(driver);
 	}
 }

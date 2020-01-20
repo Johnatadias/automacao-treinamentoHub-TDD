@@ -6,9 +6,15 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage{
 	
+	public HomePage(WebDriver driver) {
+		super(driver);
+		PageFactory.initElements(driver, this);
+	}
+
 	//####################################################################
 	//metodo de test cadastraUsuario
 	@FindBy(id = "menuUserLink")
@@ -24,11 +30,13 @@ public class HomePage {
 		iconeUser.click();
 	}
 	
-	public void clicaCreateNewAccount() {
+	public FormCadastraUsuarioPage clicaCreateNewAccount() {
 		createNewAccount.sendKeys(Keys.ENTER);
+		
+		return new FormCadastraUsuarioPage(driver);
 	}
 	
-	public String validandoUsuarioCriado(WebDriver driver) {
+	public String validandoUsuarioCriado() {
 		/*setando um tempo para realizar o assertEquals*/
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
@@ -38,8 +46,10 @@ public class HomePage {
 	
 	//####################################################################
 	//metodo de test procurarProdutoPelaHomePage	
-	public void buscaCategoria(WebDriver driver, String categoria) {
+	public CategoriaPage buscaCategoria(String categoria) {
 		driver.findElement(By.id(categoria+"Img")).click();
+		
+		return new CategoriaPage(driver);
 	}
 
 	//####################################################################
@@ -50,8 +60,10 @@ public class HomePage {
 	@FindBy(id = "autoComplete")
 	private WebElement nomeCategoria;
 	
-	public void inserirNomeCategoria(String categoria) {
+	public CategoriaPage inserirNomeCategoria(String categoria) {
 		nomeCategoria.sendKeys(categoria + Keys.ENTER);
+		
+		return new CategoriaPage(driver);
 	}
 	
 	public void clicaLupaPesquisa() {

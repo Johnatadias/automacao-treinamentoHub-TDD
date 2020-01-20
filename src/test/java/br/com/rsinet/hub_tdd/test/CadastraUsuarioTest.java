@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,9 +19,9 @@ import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.Web;
+import br.com.rsinet.hub_tdd.suport.WebFactory;
 
-public class CadastraUsuarioTest {
+public class CadastraUsuarioTest{
 
 	private WebDriver driver;
 	private HomePage homePage;
@@ -39,11 +38,11 @@ public class CadastraUsuarioTest {
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
-		driver = Web.createChromer();
+		driver = WebFactory.createChromer();
 
 		/*definindo as PageFactory usada neste teste*/
-		homePage = PageFactory.initElements(driver, HomePage.class);
-		cadastraUsuario = PageFactory.initElements(driver, FormCadastraUsuarioPage.class);
+		homePage = new HomePage(driver);
+		cadastraUsuario = new FormCadastraUsuarioPage(driver);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Cadastro");
@@ -79,7 +78,7 @@ public class CadastraUsuarioTest {
 		
 		/*Validando usuario se foi criado com sucesso, recenbendo massa de dados pelo excel*/
 		String assertAccount = ExcelUtils.getCellData(13, 1);
-		assertEquals(assertAccount, homePage.validandoUsuarioCriado(driver));
+		assertEquals(assertAccount, homePage.validandoUsuarioCriado());
 	}
 
 	@Test
@@ -128,6 +127,6 @@ public class CadastraUsuarioTest {
 
 		/*fechando*/
 		Report.quitExtent(extent);
-		Web.quitChrome(driver);
+		WebFactory.quitChrome(driver);
 	}
 }

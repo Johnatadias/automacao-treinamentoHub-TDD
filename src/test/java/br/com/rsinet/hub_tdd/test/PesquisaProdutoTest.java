@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +19,7 @@ import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.Web;
+import br.com.rsinet.hub_tdd.suport.WebFactory;
 
 public class PesquisaProdutoTest {
 
@@ -40,12 +39,12 @@ public class PesquisaProdutoTest {
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
-		driver = Web.createChromer();
+		driver = WebFactory.createChromer();
 
 		/*definindo as PageFactory usada neste teste*/
-		homePage = PageFactory.initElements(driver, HomePage.class);
-		categoriaPage = PageFactory.initElements(driver, CategoriaPage.class);
-		produtoDescPage = PageFactory.initElements(driver, ProdutoDescricaoPage.class);
+		homePage = new HomePage(driver);
+		categoriaPage = new CategoriaPage(driver);
+		produtoDescPage = new ProdutoDescricaoPage(driver);
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Produtos");
@@ -62,8 +61,8 @@ public class PesquisaProdutoTest {
 		String assertProduto = ExcelUtils.getCellData(2, 2);
 
 		/*ações*/
-		homePage.buscaCategoria(driver, categoriaDoProduto);
-		categoriaPage.escolherProdutoDaCategoria(driver, produto);
+		homePage.buscaCategoria(categoriaDoProduto);
+		categoriaPage.escolherProdutoDaCategoria(produto);
 
 		/*Validando se produto foi escolhido corretamente*/
 		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido());
@@ -81,13 +80,13 @@ public class PesquisaProdutoTest {
 		String assertMensagem = ExcelUtils.getCellData(4, 2);
 
 		/*ações*/
-		homePage.buscaCategoria(driver, categoriaDoProduto);
-		categoriaPage.escolherProdutoDaCategoria(driver, produto);
+		homePage.buscaCategoria(categoriaDoProduto);
+		categoriaPage.escolherProdutoDaCategoria(produto);
 		produtoDescPage.inserindoQtd(quantidadeProduto);
 		produtoDescPage.clicarBtnAddProduto();
 
 		/*Validando se produto foi escolhido corretamente*/
-		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError(driver));
+		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError());
 	}
 
 	@AfterMethod
@@ -97,6 +96,6 @@ public class PesquisaProdutoTest {
 
 		/*fechando*/
 		Report.quitExtent(extent);
-		Web.quitChrome(driver);
+		WebFactory.quitChrome(driver);
 	}
 }

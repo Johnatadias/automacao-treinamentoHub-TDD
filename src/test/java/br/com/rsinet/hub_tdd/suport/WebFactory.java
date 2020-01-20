@@ -5,11 +5,11 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Web {
+public class WebFactory {
 
 	/*setando configurações nescessarias para selenium webdriver*/
 	public static WebDriver createChromer() {
-		System.setProperty("webdriver.chrome.driver", "target/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.advantageonlineshopping.com/#/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

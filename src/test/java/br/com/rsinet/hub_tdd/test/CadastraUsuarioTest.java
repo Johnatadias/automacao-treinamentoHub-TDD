@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +14,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
+import br.com.rsinet.hub_tdd.pageFactory.BasePage;
 import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
@@ -28,6 +28,7 @@ public class CadastraUsuarioTest{
 	private FormCadastraUsuarioPage cadastraUsuario;
 	private ExtentTest test;
 	private ExtentReports extent;
+	private BasePage basePage;
 
 	@BeforeTest
 	public void setConfigReport() {
@@ -39,6 +40,7 @@ public class CadastraUsuarioTest{
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
 		driver = WebFactory.createChromer();
+		basePage = new BasePage(driver);
 
 		/*definindo as PageFactory usada neste teste*/
 		homePage = new HomePage(driver);
@@ -104,9 +106,8 @@ public class CadastraUsuarioTest{
 		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
 				lastName, phoneNumber, country, city, address, state, postalCode);
 		
-		/*setando um tempo para realizar o assertEquals*/
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scrollBy(0,-380)", "");
+		/*scroll para cima para realizar o screenshot*/
+		basePage.scrollUp();
 
 		/*Validando campos obrigatorio para cadastro, recenbendo massa de dados pelo excel*/
 		String assertUserName = ExcelUtils.getCellData(1, 3);

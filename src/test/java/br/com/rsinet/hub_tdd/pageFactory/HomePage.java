@@ -1,7 +1,6 @@
 package br.com.rsinet.hub_tdd.pageFactory;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -38,8 +37,7 @@ public class HomePage extends BasePage{
 	
 	public String validandoUsuarioCriado() {
 		/*setando um tempo para realizar o assertEquals*/
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 1000);");
+		waitTime();
 		
 		return usuarioCriado.getText();
 	}

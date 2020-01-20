@@ -1,6 +1,5 @@
 package br.com.rsinet.hub_tdd.pageFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,8 +26,7 @@ public class ResultadoPesquisaPage extends BasePage{
 	
 	public String validandoResult() {
 		/*setando um tempo para poder gerar a screenshot por completa*/
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeAsyncScript("window.setTimeout(arguments[arguments.length - 1], 2000);");
+		waitTime();
 		
 		return resultPesquisaProduto.getText();
 	}

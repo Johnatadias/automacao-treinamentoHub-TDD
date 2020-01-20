@@ -1,6 +1,5 @@
 package br.com.rsinet.hub_tdd.pageFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,8 +41,7 @@ public class ProdutoDescricaoPage extends BasePage{
 	
 	public String validandoMensagemError() {
 		/*usando o scroll para obter a mensagem de erro*/
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("scrollBy(0,200)", "");
+		scrollDown();
 		
 		return MensagemError.getText();
 	}

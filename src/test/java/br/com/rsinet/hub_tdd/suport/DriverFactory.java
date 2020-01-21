@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WebFactory {
+public class DriverFactory {
 
 	/*setando configurações nescessarias para selenium webdriver*/
 	public static WebDriver createChromer() {

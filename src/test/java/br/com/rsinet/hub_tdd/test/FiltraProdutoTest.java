@@ -4,7 +4,6 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -20,7 +19,7 @@ import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.pageFactory.ResultadoPesquisaPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.WebFactory;
+import br.com.rsinet.hub_tdd.suport.DriverFactory;
 
 public class FiltraProdutoTest {
 
@@ -40,7 +39,7 @@ public class FiltraProdutoTest {
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
-		driver = WebFactory.createChromer();
+		driver = DriverFactory.createChromer();
 
 		/*definindo as PageFactory usada neste teste*/
 		homePage = new HomePage(driver);
@@ -49,7 +48,7 @@ public class FiltraProdutoTest {
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Produtos");
-
+		
 		/*ação para iniciar ambos testes desta classe*/
 		homePage.clicaLupaPesquisa();
 	}
@@ -66,7 +65,6 @@ public class FiltraProdutoTest {
 
 		/*ação*/
 		homePage.inserirNomeCategoria(categoriaDoProduto);
-		driver.findElement(By.xpath("//*[@id=\"search\"]/div/div/img")).click();
 		resultadoPesquisaPage.escolherProduto().escolherProdutoDaCategoria(produto);;
 
 		/*Validandp se produto foi escolhido corretamente*/
@@ -96,6 +94,6 @@ public class FiltraProdutoTest {
 
 		/*fechando*/
 		Report.quitExtent(extent);
-		WebFactory.quitChrome(driver);
+		DriverFactory.quitChrome(driver);
 	}
 }

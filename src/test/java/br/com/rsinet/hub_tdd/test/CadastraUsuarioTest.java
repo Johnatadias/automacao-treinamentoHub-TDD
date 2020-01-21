@@ -19,7 +19,7 @@ import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.WebFactory;
+import br.com.rsinet.hub_tdd.suport.DriverFactory;
 
 public class CadastraUsuarioTest{
 
@@ -39,7 +39,7 @@ public class CadastraUsuarioTest{
 	@BeforeMethod
 	public void inicializa() throws Exception {
 		/*setando chromedriver*/
-		driver = WebFactory.createChromer();
+		driver = DriverFactory.createChromer();
 		basePage = new BasePage(driver);
 
 		/*definindo as PageFactory usada neste teste*/
@@ -128,6 +128,6 @@ public class CadastraUsuarioTest{
 
 		/*fechando*/
 		Report.quitExtent(extent);
-		WebFactory.quitChrome(driver);
+		DriverFactory.quitChrome(driver);
 	}
 }

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite_de_Teste">
-                    <span>C:\temp\Selenium_Automacao\ProjectTreinamentoHub_TDD\src\test\java\br\com\rsinet\hub_tdd\suport\testng.xml</span>
+                    <span>C:\temp\Selenium_Automacao\ProjectTreinamentoHub_TDD\src\test\java\br\com\rsinet\hub_tdd\test\SuiteDeTestes.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -162,8 +162,8 @@
                   <a name="deveCadastrarUsuarioNovoTest">
                   </a> <!-- deveCadastrarUsuarioNovoTest -->
                   <span class="method-name">deveCadastrarUsuarioNovoTest</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [] but found [john1126]
-	at br.com.rsinet.hub_tdd.test.CadastraUsuarioTest.deveCadastrarUsuarioNovoTest(CadastraUsuarioTest.java:83)
+                  <div class="stack-trace">java.lang.AssertionError: expected [] but found [john1129]
+	at br.com.rsinet.hub_tdd.test.CadastraUsuarioTest.deveCadastrarUsuarioNovoTest(CadastraUsuarioTest.java:73)
 ... Removed 31 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -232,7 +232,7 @@
         </div> <!-- panel Suite_de_Teste -->
         <div panel-name="test-xml-Suite_de_Teste" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\temp\Selenium_Automacao\ProjectTreinamentoHub_TDD\src\test\java\br\com\rsinet\hub_tdd\suport\testng.xml</span>
+            <span class="header-content">C:\temp\Selenium_Automacao\ProjectTreinamentoHub_TDD\src\test\java\br\com\rsinet\hub_tdd\test\SuiteDeTestes.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -244,7 +244,7 @@
       &lt;class name=&quot;br.com.rsinet.hub_tdd.test.CadastraUsuarioTest&quot;/&gt;
       &lt;class name=&quot;br.com.rsinet.hub_tdd.test.FiltraProdutoTest&quot;/&gt;
       &lt;class name=&quot;br.com.rsinet.hub_tdd.test.PesquisaProdutoTest&quot;/&gt;
-      &lt;class name=&quot;br.com.rsinet.hub_tdd.test.GerarRelatorioSuite&quot;/&gt;
+      &lt;class name=&quot;br.com.rsinet.hub_tdd.test.Hooks&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Automacao utilizando TDD --&gt;
 &lt;/suite&gt; &lt;!-- Suite de Teste --&gt;
@@ -288,32 +288,32 @@ data.addRows(6);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'deveCadastrarUsuarioNovoTest')
 data.setCell(0, 2, 'br.com.rsinet.hub_tdd.test.CadastraUsuarioTest')
-data.setCell(0, 3, 3050);
+data.setCell(0, 3, 3125);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'deveValidarCamposObrigatorioDoCadastroTest')
 data.setCell(1, 2, 'br.com.rsinet.hub_tdd.test.CadastraUsuarioTest')
-data.setCell(1, 3, 1694);
+data.setCell(1, 3, 1701);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'procuraProdutoInexistentePelaLupaDePesquisa')
 data.setCell(2, 2, 'br.com.rsinet.hub_tdd.test.FiltraProdutoTest')
-data.setCell(2, 3, 1262);
+data.setCell(2, 3, 1273);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'procuraProdutoExistentePelaLupaDePesquisa')
 data.setCell(3, 2, 'br.com.rsinet.hub_tdd.test.FiltraProdutoTest')
-data.setCell(3, 3, 1052);
+data.setCell(3, 3, 1104);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'naoDeveAddMaisDezProdutoNoCarrinhoDeCompras')
 data.setCell(4, 2, 'br.com.rsinet.hub_tdd.test.PesquisaProdutoTest')
-data.setCell(4, 3, 1036);
+data.setCell(4, 3, 1046);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'deveProcurarProdutoPorHomePage')
 data.setCell(5, 2, 'br.com.rsinet.hub_tdd.test.PesquisaProdutoTest')
-data.setCell(5, 3, 868);
+data.setCell(5, 3, 867);
 window.suiteTableData['Suite_de_Teste']= { tableData: data, tableDiv: 'times-div-Suite_de_Teste'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Suite_de_Teste">
               </div> <!-- times-div-Suite_de_Teste -->
             </div> <!-- times-div -->
@@ -349,97 +349,97 @@ return data;
               <div class="chronological-class-name">br.com.rsinet.hub_tdd.test.FiltraProdutoTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setConfigReport</span>
-                <span class="method-start">82 ms</span>
+                <span class="method-start">79 ms</span>
               </div> <!-- configuration-test before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.hub_tdd.test.PesquisaProdutoTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setConfigReport</span>
-                <span class="method-start">83 ms</span>
+                <span class="method-start">79 ms</span>
               </div> <!-- configuration-test before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.hub_tdd.test.CadastraUsuarioTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">92 ms</span>
+                <span class="method-start">79 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">deveCadastrarUsuarioNovoTest</span>
-                <span class="method-start">11333 ms</span>
+                <span class="method-start">11243 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=deveCadastrarUsuarioNovoTest status=FAILURE method=CadastraUsuarioTest.deveCadastra...)</span>
-                <span class="method-start">14385 ms</span>
+                <span class="method-start">14372 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">15304 ms</span>
+                <span class="method-start">15288 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">deveValidarCamposObrigatorioDoCadastroTest</span>
-                <span class="method-start">25848 ms</span>
+                <span class="method-start">25880 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=deveValidarCamposObrigatorioDoCadastroTest status=SUCCESS method=CadastraUsuarioTes...)</span>
-                <span class="method-start">27542 ms</span>
+                <span class="method-start">27581 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.hub_tdd.test.FiltraProdutoTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">28448 ms</span>
+                <span class="method-start">28494 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">procuraProdutoExistentePelaLupaDePesquisa</span>
-                <span class="method-start">38481 ms</span>
+                <span class="method-start">38562 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=procuraProdutoExistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.p...)</span>
-                <span class="method-start">39534 ms</span>
+                <span class="method-start">39666 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">40635 ms</span>
+                <span class="method-start">40604 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">procuraProdutoInexistentePelaLupaDePesquisa</span>
-                <span class="method-start">50662 ms</span>
+                <span class="method-start">50626 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=procuraProdutoInexistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest...)</span>
-                <span class="method-start">51924 ms</span>
+                <span class="method-start">51903 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">br.com.rsinet.hub_tdd.test.PesquisaProdutoTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">52847 ms</span>
+                <span class="method-start">52824 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">deveProcurarProdutoPorHomePage</span>
-                <span class="method-start">62779 ms</span>
+                <span class="method-start">62749 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=deveProcurarProdutoPorHomePage status=SUCCESS method=PesquisaProdutoTest.deveProcur...)</span>
-                <span class="method-start">63648 ms</span>
+                <span class="method-start">63616 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">inicializa</span>
-                <span class="method-start">64735 ms</span>
+                <span class="method-start">64748 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">naoDeveAddMaisDezProdutoNoCarrinhoDeCompras</span>
-                <span class="method-start">74678 ms</span>
+                <span class="method-start">74723 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">finaliza([TestResult name=naoDeveAddMaisDezProdutoNoCarrinhoDeCompras status=SUCCESS method=PesquisaProdutoTe...)</span>
-                <span class="method-start">75714 ms</span>
+                <span class="method-start">75769 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

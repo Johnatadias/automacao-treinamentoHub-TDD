@@ -24,6 +24,6 @@ public class BasePage {
 	
 	public void scrollUp() {
 		js = (JavascriptExecutor)driver;
-		js.executeScript("scrollBy(0,-380)", "");
+		js.executeScript("scrollBy(0,-500)", "");
 	}
 }

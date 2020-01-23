@@ -9,7 +9,7 @@ public class DriverFactory {
 
 	/*setando configurações nescessarias para selenium webdriver*/
 	public static WebDriver createChromer() {
-		System.setProperty("webdriver.chrome.driver", "C:\\\\Drivers-Libs-Servidor/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Drivers-Libs-Servidor/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://www.advantageonlineshopping.com/#/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

@@ -19,6 +19,7 @@ import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
+import br.com.rsinet.hub_tdd.utils.ExcelMassaDeDados;
 import br.com.rsinet.hub_tdd.suport.DriverFactory;
 
 public class PesquisaProdutoTest {
@@ -29,6 +30,7 @@ public class PesquisaProdutoTest {
 	private ProdutoDescricaoPage produtoDescPage;
 	private ExtentTest test;
 	private ExtentReports extent;
+	private ExcelMassaDeDados excel;
 
 	@BeforeTest
 	public void setConfigReport() {
@@ -48,6 +50,9 @@ public class PesquisaProdutoTest {
 
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Produtos");
+		
+		/*instanciando a class responsavel por armazenar a massa de dados do excel*/
+		excel = new ExcelMassaDeDados();
 	}
 
 	@Test
@@ -55,17 +60,12 @@ public class PesquisaProdutoTest {
 		/*definindo teste para o report*/
 		test = Report.createTest("deveProcurarProdutoPorHomePage");
 
-		/*massa para o teste*/
-		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
-		String produto = ExcelUtils.getCellData(2, 1);
-		String assertProduto = ExcelUtils.getCellData(2, 2);
-
 		/*ações*/
-		homePage.buscaCategoria(categoriaDoProduto);
-		categoriaPage.escolherProdutoDaCategoria(produto);
+		homePage.buscaCategoria(excel.getCategoriaDoProdutoHomePage());
+		categoriaPage.escolherProdutoDaCategoria(excel.getProdutoEscolhido());
 
 		/*Validando se produto foi escolhido corretamente*/
-		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido());
+		assertEquals(excel.getAssertProdutoEscolhido(), produtoDescPage.validandoProdutoEscolhido());
 	}
 
 	@Test
@@ -73,20 +73,14 @@ public class PesquisaProdutoTest {
 		/*definindo teste para o report*/
 		test = Report.createTest("naoDeveAddMaisDezProdutoNoCarrinhoDeCompras");
 
-		/*massa para o teste*/
-		String categoriaDoProduto = ExcelUtils.getCellData(2, 0);
-		String produto = ExcelUtils.getCellData(2, 1);
-		String quantidadeProduto = ExcelUtils.getCellData(4, 3);
-		String assertMensagem = ExcelUtils.getCellData(4, 2);
-
 		/*ações*/
-		homePage.buscaCategoria(categoriaDoProduto);
-		categoriaPage.escolherProdutoDaCategoria(produto);
-		produtoDescPage.inserindoQtd(quantidadeProduto);
+		homePage.buscaCategoria(excel.getCategoriaDoProdutoParaAdd());
+		categoriaPage.escolherProdutoDaCategoria(excel.getProdutoEscolhidoParaAdd());
+		produtoDescPage.inserindoQtd(excel.getQuantidadeProduto());
 		produtoDescPage.clicarBtnAddProduto();
 
 		/*Validando se produto foi escolhido corretamente*/
-		assertEquals(assertMensagem, produtoDescPage.validandoMensagemError());
+		assertEquals(excel.getAssertMensagem(), produtoDescPage.validandoMensagemError());
 	}
 
 	@AfterMethod

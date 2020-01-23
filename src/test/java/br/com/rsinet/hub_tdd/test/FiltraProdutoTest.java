@@ -17,9 +17,10 @@ import com.aventstack.extentreports.ExtentTest;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.pageFactory.ProdutoDescricaoPage;
 import br.com.rsinet.hub_tdd.pageFactory.ResultadoPesquisaPage;
+import br.com.rsinet.hub_tdd.suport.DriverFactory;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
-import br.com.rsinet.hub_tdd.suport.DriverFactory;
+import br.com.rsinet.hub_tdd.utils.ExcelMassaDeDados;
 
 public class FiltraProdutoTest {
 
@@ -29,6 +30,7 @@ public class FiltraProdutoTest {
 	private ProdutoDescricaoPage produtoDescPage;
 	private ExtentTest test;
 	private ExtentReports extent;
+	private ExcelMassaDeDados excel;
 
 	@BeforeTest
 	public void setConfigReport() {
@@ -49,6 +51,9 @@ public class FiltraProdutoTest {
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Produtos");
 		
+		/*instanciando a class responsavel por armazenar a massa de dados do excel*/
+		excel = new ExcelMassaDeDados();
+		
 		/*ação para iniciar ambos testes desta classe*/
 		homePage.clicaLupaPesquisa();
 	}
@@ -58,17 +63,12 @@ public class FiltraProdutoTest {
 		/*definindo teste para o report*/
 		test = Report.createTest("procuraProdutoExistentePelaLupaDePesquisa");
 
-		/*massa para o teste*/
-		String categoriaDoProduto = ExcelUtils.getCellData(1, 0);
-		String produto = ExcelUtils.getCellData(1, 1);
-		String assertProduto = ExcelUtils.getCellData(1, 2);
-
 		/*ação*/
-		homePage.inserirNomeCategoria(categoriaDoProduto);
-		resultadoPesquisaPage.escolherProduto().escolherProdutoDaCategoria(produto);;
+		homePage.inserirNomeCategoria(excel.getCategoriaExistente());
+		resultadoPesquisaPage.escolherProduto().escolherProdutoDaCategoria(excel.getProdutoExistente());
 
 		/*Validandp se produto foi escolhido corretamente*/
-		assertEquals(assertProduto, produtoDescPage.validandoProdutoEscolhido());
+		assertEquals(excel.getAssertProdutoExistente(), produtoDescPage.validandoProdutoEscolhido());
 	}
 
 	@Test
@@ -76,15 +76,11 @@ public class FiltraProdutoTest {
 		/*definindo teste para o report*/
 		test = Report.createTest("procuraProdutoInexistentePelaLupaDePesquisa");
 
-		/*massa para o teste*/
-		String categoriaDoProduto = ExcelUtils.getCellData(9, 0);
-		String assertProduto = ExcelUtils.getCellData(9, 1);
-
 		/*ação*/
-		homePage.inserirNomeCategoria(categoriaDoProduto);
+		homePage.inserirNomeCategoria(excel.getProdutoInexistente());
 
 		/*Validandp se produto não foi encontrado*/
-		assertEquals(assertProduto, resultadoPesquisaPage.validandoResult());
+		assertEquals(excel.getAssertProdutoInexistente(), resultadoPesquisaPage.validandoResult());
 	}
 
 	@AfterMethod

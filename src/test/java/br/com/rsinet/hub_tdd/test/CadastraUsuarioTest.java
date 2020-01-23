@@ -19,6 +19,7 @@ import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
+import br.com.rsinet.hub_tdd.utils.ExcelMassaDeDados;
 import br.com.rsinet.hub_tdd.suport.DriverFactory;
 
 public class CadastraUsuarioTest{
@@ -29,6 +30,7 @@ public class CadastraUsuarioTest{
 	private ExtentTest test;
 	private ExtentReports extent;
 	private BasePage basePage;
+	private ExcelMassaDeDados excel;
 
 	@BeforeTest
 	public void setConfigReport() {
@@ -49,6 +51,9 @@ public class CadastraUsuarioTest{
 		/*setando as configurações da classe excel responsavel pela leitura da massa de dados*/
 		ExcelUtils.setExcelFile("Cadastro");
 		
+		/*instanciando a class responsavel por armazenar a massa de dados do excel*/
+		excel = new ExcelMassaDeDados();
+		
 		/*ação para iniciar ambos testes desta classe*/
 		homePage.clicaIconeUser();
 		homePage.clicaCreateNewAccount();
@@ -58,67 +63,34 @@ public class CadastraUsuarioTest{
 	public void deveCadastrarUsuarioNovoTest() throws Exception {
 		/*definindo teste para o report*/
 		test = Report.createTest("deveCadastrarUsuarioNovoTest");
-		
-		/*massa para o teste*/
-		String userName = ExcelUtils.getCellData(1, 1);
-		String email = ExcelUtils.getCellData(2, 1);
-		String password = ExcelUtils.getCellData(3, 1);
-		String confirmPassword = ExcelUtils.getCellData(4, 1);
-		String firstName = ExcelUtils.getCellData(5, 1);
-		String lastName = ExcelUtils.getCellData(6, 1);
-		String phoneNumber = ExcelUtils.getCellData(7, 1);
-		String country = ExcelUtils.getCellData(8, 1);
-		String city = ExcelUtils.getCellData(9, 1);
-		String address = ExcelUtils.getCellData(10, 1);
-		String state = ExcelUtils.getCellData(11, 1);
-		String postalCode = ExcelUtils.getCellData(12, 1);
 
 		/*ações*/
-		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
-				lastName, phoneNumber, country, city, address, state, postalCode);
+		cadastraUsuario.cadastrandoUsuario(excel.getUserName(), excel.getEmail(), excel.getPassword(), excel.getConfirmPassword(), excel.getFirstName() ,
+				excel.getLastName(), excel.getPhoneNumber(), excel.getCountry(), excel.getCity(), excel.getAddress(), excel.getState(), excel.getPostalCode());
 		cadastraUsuario.clicaBtnRegistrar();
 		
 		/*Validando usuario se foi criado com sucesso, recenbendo massa de dados pelo excel*/
-		String assertAccount = ExcelUtils.getCellData(13, 1);
-		assertEquals(assertAccount, homePage.validandoUsuarioCriado());
+		assertEquals(excel.getAssertNovoUsuario(), homePage.validandoUsuarioCriado());
 	}
 
 	@Test
 	public void deveValidarCamposObrigatorioDoCadastroTest() throws Exception {
 		/*definindo teste para o report*/
 		test = Report.createTest("deveValidarCamposObrigatorioDoCadastroTest");
-		
-		/*massa para o teste*/
-		String userName = "";
-		String email = "";
-		String password = "";
-		String confirmPassword = "";
-		String firstName = ExcelUtils.getCellData(5, 1);
-		String lastName = ExcelUtils.getCellData(6, 1);
-		String phoneNumber = ExcelUtils.getCellData(7, 1);
-		String country = ExcelUtils.getCellData(8, 1);
-		String city = ExcelUtils.getCellData(9, 1);
-		String address = ExcelUtils.getCellData(10, 1);
-		String state = ExcelUtils.getCellData(11, 1);
-		String postalCode = ExcelUtils.getCellData(12, 1);
 
 		/*ações*/
-		cadastraUsuario.cadastrandoUsuario(userName, email, password, confirmPassword, firstName ,
-				lastName, phoneNumber, country, city, address, state, postalCode);
+		cadastraUsuario.cadastrandoUsuario(excel.getUserNameVazio(), excel.getEmailVazio(), excel.getPassaWordVazio(), excel.getConfirmPasswordVazio(), excel.getFirstName() ,
+				excel.getLastName(), excel.getPhoneNumber(), excel.getCountry(), excel.getCity(), excel.getAddress(), excel.getState(), excel.getPostalCode());
+		cadastraUsuario.clicaBtnRegistrar();
+		
+		/*Validando campos obrigatorio para cadastro, recenbendo massa de dados pelo excel*/
+		assertEquals(excel.getAssertUserName(), cadastraUsuario.validandoCampoUserName());
+		assertEquals(excel.getAssertEmail(), cadastraUsuario.validandoCampoEmail());
+		assertEquals(excel.getAssertPassword(), cadastraUsuario.validandoCampoPass());
+		assertEquals(excel.getAssertConfirmPassword(), cadastraUsuario.validandoCampoConfirmPass());
 		
 		/*scroll para cima para realizar o screenshot*/
 		basePage.scrollUp();
-
-		/*Validando campos obrigatorio para cadastro, recenbendo massa de dados pelo excel*/
-		String assertUserName = ExcelUtils.getCellData(1, 3);
-		String assertEmail = ExcelUtils.getCellData(2, 3);
-		String assertPassword = ExcelUtils.getCellData(3, 3);
-		String assertConfirmPassword = ExcelUtils.getCellData(4, 3);
-
-		assertEquals(assertUserName, cadastraUsuario.validandoCampoUserName());
-		assertEquals(assertEmail, cadastraUsuario.validandoCampoEmail());
-		assertEquals(assertPassword, cadastraUsuario.validandoCampoPass());
-		assertEquals(assertConfirmPassword, cadastraUsuario.validandoCampoConfirmPass());
 	}
 
 	@AfterMethod

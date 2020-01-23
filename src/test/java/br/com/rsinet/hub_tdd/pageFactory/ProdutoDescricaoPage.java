@@ -28,6 +28,9 @@ public class ProdutoDescricaoPage extends BasePage{
 	@FindBy(name = "save_to_cart")
 	private WebElement btnAddProduto;
 	
+	@FindBy(xpath = "//*[@id=\"productProperties\"]/label")
+	private WebElement MensagemError;
+	
 	public void inserindoQtd (String qtd) {
 		quantidadeProdutos.sendKeys(qtd);
 	}
@@ -35,10 +38,7 @@ public class ProdutoDescricaoPage extends BasePage{
 	public void clicarBtnAddProduto() {
 		btnAddProduto.click();
 	}
-	
-	@FindBy(xpath = "//*[@id=\"productProperties\"]/label")
-	private WebElement MensagemError;
-	
+
 	public String validandoMensagemError() {
 		/*usando o scroll para obter a mensagem de erro*/
 		scrollDown();

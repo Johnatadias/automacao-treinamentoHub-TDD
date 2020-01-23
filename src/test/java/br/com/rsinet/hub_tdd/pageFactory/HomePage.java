@@ -14,8 +14,8 @@ public class HomePage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}
 
-	//####################################################################
-	//metodo de test cadastraUsuario
+	/*####################################################################
+	* metodo de test cadastraUsuario*/
 	@FindBy(id = "menuUserLink")
 	private WebElement iconeUser;
 	
@@ -42,16 +42,16 @@ public class HomePage extends BasePage{
 		return usuarioCriado.getText();
 	}
 	
-	//####################################################################
-	//metodo de test procurarProdutoPelaHomePage	
+	/*####################################################################
+	* metodo de test procurarProdutoPelaHomePage*/	
 	public CategoriaPage buscaCategoria(String categoria) {
 		driver.findElement(By.id(categoria+"Img")).click();
 		
 		return new CategoriaPage(driver);
 	}
 
-	//####################################################################
-	//metodo de test procuraProdutoPelaLupaDePesquisa
+	/*####################################################################
+	* metodo de test procuraProdutoPelaLupaDePesquisa*/
 	@FindBy(id = "menuSearch")
 	private WebElement lupaPesquisa;
 	

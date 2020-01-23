@@ -19,8 +19,8 @@ public class ProdutoDescricaoPage extends BasePage{
 		return produtoEscolhido.getText();
 	}	
 	
-	//##########################################################
-	/*metodo de test naoDeveAddMaisDezProdutoNoCarrinhoDeCompras*/
+	/*##########################################################
+	* metodo de test naoDeveAddMaisDezProdutoNoCarrinhoDeCompras*/
 	
 	@FindBy(name = "quantity")
 	private WebElement quantidadeProdutos;

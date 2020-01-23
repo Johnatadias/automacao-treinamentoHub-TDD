@@ -12,15 +12,15 @@ public class ResultadoPesquisaPage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}
 
-	//##########################################################
-	//metodo de test procuraProdutoExistentePelaLupaDePesquisa
+	/*##########################################################
+	* metodo de test procuraProdutoExistentePelaLupaDePesquisa*/
 	public CategoriaPage escolherProduto() {
 		/*foi instanciando essa page para poder usar o metodo que serve para outros testes*/
 		return new CategoriaPage(driver);
 	}
 	
-	//##########################################################
-	/*metodo de test procuraProdutoInexistentePelaLupaDePesquis*/
+	/*##########################################################
+	* metodo de test procuraProdutoInexistentePelaLupaDePesquis*/
 	@FindBy(xpath = "//*[@id=\"searchPage\"]/div[3]/div/label/span")
 	private WebElement resultPesquisaProduto;
 	

@@ -35,7 +35,7 @@ public class FiltraProdutoTest {
 	@BeforeTest
 	public void setConfigReport() {
 		/*setando o reporte e enviando a string definindo o nome do arquivo report deste teste*/
-		extent = Report.setReport("filtraProduto_report");
+		extent = Report.setReport();
 	}
 
 	@BeforeMethod

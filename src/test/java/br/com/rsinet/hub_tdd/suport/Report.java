@@ -11,6 +11,9 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import br.com.rsinet.hub_tdd.utils.DateUtils;
+import br.com.rsinet.hub_tdd.utils.Screenshot;
+
 public class Report {
 
 	public static ExtentHtmlReporter htmlReporter;
@@ -18,8 +21,8 @@ public class Report {
 	public static ExtentTest test;
 
 	/*metodo de configuranções nescessarias para manipular dados via excel*/
-	public static ExtentReports setReport(String nomeReport) {
-		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reportRelatorio/"+nomeReport+".html");
+	public static ExtentReports setReport() {
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reportRelatorio/suiteMonstra-"+DateUtils.getTimeStamp()+".html");
 
 		htmlReporter.config().setDocumentTitle("Automation Report");
 		htmlReporter.config().setReportName("Functional Report");
@@ -49,15 +52,12 @@ public class Report {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Caso de teste FAILED: " + result.getName());
 			test.log(Status.FAIL, "Caso de teste FAILED: " + result.getThrowable());
-			
-			test.addScreenCaptureFromPath(screenPath);
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			test.log(Status.SKIP, "Caso de teste SKIPPED: " + result.getName());
-			test.addScreenCaptureFromPath(screenPath);
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, "Caso de teste PASSED: " + result.getName());
-			test.addScreenCaptureFromPath(screenPath);
 		}
+		test.addScreenCaptureFromPath(screenPath);
 	}
 
 	/*fechando*/

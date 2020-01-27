@@ -7,6 +7,7 @@
         <methods>
           <include name="inicializa"/>
           <include name="finaliza"/>
+          <include name="deveValidarCamposObrigatorioDoCadastroTest"/>
           <include name="deveCadastrarUsuarioNovoTest"/>
           <include name="setConfigReport"/>
         </methods>

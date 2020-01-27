@@ -7,20 +7,20 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import br.com.rsinet.hub_tdd.pageFactory.BasePage;
 import br.com.rsinet.hub_tdd.pageFactory.FormCadastraUsuarioPage;
 import br.com.rsinet.hub_tdd.pageFactory.HomePage;
+import br.com.rsinet.hub_tdd.suport.DriverFactory;
 import br.com.rsinet.hub_tdd.suport.ExcelUtils;
 import br.com.rsinet.hub_tdd.suport.Report;
 import br.com.rsinet.hub_tdd.utils.ExcelMassaDeDados;
-import br.com.rsinet.hub_tdd.suport.DriverFactory;
 
 public class CadastraUsuarioTest{
 
@@ -28,14 +28,13 @@ public class CadastraUsuarioTest{
 	private HomePage homePage;
 	private FormCadastraUsuarioPage cadastraUsuario;
 	private ExtentTest test;
-	private ExtentReports extent;
 	private BasePage basePage;
 	private ExcelMassaDeDados excel;
 
 	@BeforeTest
 	public void setConfigReport() {
 		/*setando o reporte e enviando a string definindo o nome do arquivo report deste teste*/
-		extent = Report.setReport();
+		Report.setReport();
 	}
 	
 	@BeforeMethod
@@ -99,7 +98,11 @@ public class CadastraUsuarioTest{
 		Report.statusReported(test, result, driver);
 
 		/*fechando*/
-		Report.quitExtent(extent);
 		DriverFactory.quitChrome(driver);
+	}
+	
+	@AfterTest
+	public void finalizaReport() {
+		Report.quitExtent();
 	}
 }

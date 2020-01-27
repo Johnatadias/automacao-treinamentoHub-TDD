@@ -6,6 +6,7 @@
       <class name="br.com.rsinet.hub_tdd.test.CadastraUsuarioTest">
         <methods>
           <include name="inicializa"/>
+          <include name="finalizaReport"/>
           <include name="finaliza"/>
           <include name="deveCadastrarUsuarioNovoTest"/>
           <include name="setConfigReport"/>

@@ -2,6 +2,7 @@ package br.com.rsinet.hub_tdd.suport;
 
 import java.io.IOException;
 
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 
@@ -21,7 +22,7 @@ public class Report {
 	public static ExtentTest test;
 
 	/*metodo de configuranções nescessarias para manipular dados via excel*/
-	public static ExtentReports setReport() {
+	public static void setReport() {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/target/reportRelatorio/suiteMonstra-"+DateUtils.getTimeStamp()+".html");
 
 		htmlReporter.config().setDocumentTitle("Automation Report");
@@ -36,7 +37,6 @@ public class Report {
 		extent.setSystemInfo("OS", "Windows");
 		extent.setSystemInfo("Tester Name", "Johnata Dias");
 		extent.setSystemInfo("Browser", "Chrome");
-		return extent;
 	}
 
 	/*metodo para criar os casos de testes para serem vistos no report final*/
@@ -47,7 +47,6 @@ public class Report {
 
 	/*metodo que final para emitir o status do report*/
 	public static void statusReported(ExtentTest test, ITestResult result, WebDriver driver) throws IOException {
-
 		String screenPath = Screenshot.gerarScreenShot(driver, result.getName());
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, "Caso de teste FAILED: " + result.getName());
@@ -61,7 +60,7 @@ public class Report {
 	}
 
 	/*fechando*/
-	public static void quitExtent(ExtentReports extent) {
+	public static void quitExtent() {
 		extent.flush();
 	}
 }

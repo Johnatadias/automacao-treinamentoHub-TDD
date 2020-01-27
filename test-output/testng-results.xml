@@ -2,43 +2,43 @@
 <testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite de Teste" duration-ms="77666" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:17:03Z">
+  <suite name="Suite de Teste" duration-ms="76694" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:13:07Z">
     <groups>
     </groups>
-    <test name="Automacao utilizando TDD" duration-ms="77666" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:17:03Z">
+    <test name="Automacao utilizando TDD" duration-ms="76694" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:13:07Z">
       <class name="br.com.rsinet.hub_tdd.test.PesquisaProdutoTest">
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="inicializa" is-config="true" duration-ms="10030" started-at="2020-01-24T18:16:39Z" finished-at="2020-01-24T18:16:49Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="inicializa" is-config="true" duration-ms="9913" started-at="2020-01-27T13:12:43Z" finished-at="2020-01-27T13:12:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveProcurarProdutoPorHomePage()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="deveProcurarProdutoPorHomePage" duration-ms="1139" started-at="2020-01-24T18:16:49Z" finished-at="2020-01-24T18:16:50Z">
+        <test-method status="PASS" signature="deveProcurarProdutoPorHomePage()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="deveProcurarProdutoPorHomePage" duration-ms="857" started-at="2020-01-27T13:12:53Z" finished-at="2020-01-27T13:12:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveProcurarProdutoPorHomePage -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="finaliza" is-config="true" duration-ms="1096" started-at="2020-01-24T18:16:50Z" finished-at="2020-01-24T18:16:51Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="finaliza" is-config="true" duration-ms="892" started-at="2020-01-27T13:12:53Z" finished-at="2020-01-27T13:12:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveProcurarProdutoPorHomePage status=SUCCESS method=PesquisaProdutoTest.deveProcurarProdutoPorHomePage()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870] output={null}]]]>
+                <![CDATA[[TestResult name=deveProcurarProdutoPorHomePage status=SUCCESS method=PesquisaProdutoTest.deveProcurarProdutoPorHomePage()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="inicializa" is-config="true" duration-ms="10017" started-at="2020-01-24T18:16:51Z" finished-at="2020-01-24T18:17:01Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="inicializa" is-config="true" duration-ms="9918" started-at="2020-01-27T13:12:54Z" finished-at="2020-01-27T13:13:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="naoDeveAddMaisDezProdutoNoCarrinhoDeCompras()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="naoDeveAddMaisDezProdutoNoCarrinhoDeCompras" duration-ms="1204" started-at="2020-01-24T18:17:01Z" finished-at="2020-01-24T18:17:02Z">
+        <test-method status="PASS" signature="naoDeveAddMaisDezProdutoNoCarrinhoDeCompras()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="naoDeveAddMaisDezProdutoNoCarrinhoDeCompras" duration-ms="1019" started-at="2020-01-27T13:13:04Z" finished-at="2020-01-27T13:13:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- naoDeveAddMaisDezProdutoNoCarrinhoDeCompras -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="finaliza" is-config="true" duration-ms="993" started-at="2020-01-24T18:17:02Z" finished-at="2020-01-24T18:17:03Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="finaliza" is-config="true" duration-ms="1095" started-at="2020-01-27T13:13:05Z" finished-at="2020-01-27T13:13:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=naoDeveAddMaisDezProdutoNoCarrinhoDeCompras status=SUCCESS method=PesquisaProdutoTest.naoDeveAddMaisDezProdutoNoCarrinhoDeCompras()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870] output={null}]]]>
+                <![CDATA[[TestResult name=naoDeveAddMaisDezProdutoNoCarrinhoDeCompras status=SUCCESS method=PesquisaProdutoTest.naoDeveAddMaisDezProdutoNoCarrinhoDeCompras()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab] output={null}]]]>
               </value>
             </param>
           </params>
@@ -47,23 +47,23 @@
         </test-method> <!-- finaliza -->
       </class> <!-- br.com.rsinet.hub_tdd.test.PesquisaProdutoTest -->
       <class name="br.com.rsinet.hub_tdd.test.CadastraUsuarioTest">
-        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="setConfigReport" is-config="true" duration-ms="78" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:15:46Z">
+        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="setConfigReport" is-config="true" duration-ms="78" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:11:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setConfigReport -->
-        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="setConfigReport" is-config="true" duration-ms="0" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:15:46Z">
+        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="setConfigReport" is-config="true" duration-ms="1" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:11:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setConfigReport -->
-        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3a079870]" name="setConfigReport" is-config="true" duration-ms="0" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:15:46Z">
+        <test-method status="PASS" signature="setConfigReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="setConfigReport" is-config="true" duration-ms="0" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:11:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setConfigReport -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="inicializa" is-config="true" duration-ms="11454" started-at="2020-01-24T18:15:46Z" finished-at="2020-01-24T18:15:57Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="inicializa" is-config="true" duration-ms="11369" started-at="2020-01-27T13:11:50Z" finished-at="2020-01-27T13:12:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="FAIL" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="deveCadastrarUsuarioNovoTest" duration-ms="3147" started-at="2020-01-24T18:15:57Z" finished-at="2020-01-24T18:16:00Z">
+        <test-method status="FAIL" signature="deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="deveCadastrarUsuarioNovoTest" duration-ms="3106" started-at="2020-01-27T13:12:01Z" finished-at="2020-01-27T13:12:04Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [] but found [johnata10]]]>
@@ -76,7 +76,7 @@ at org.testng.Assert.assertEqualsImpl(Assert.java:137)
 at org.testng.Assert.assertEquals(Assert.java:118)
 at org.testng.Assert.assertEquals(Assert.java:453)
 at org.testng.Assert.assertEquals(Assert.java:463)
-at br.com.rsinet.hub_tdd.test.CadastraUsuarioTest.deveCadastrarUsuarioNovoTest(CadastraUsuarioTest.java:73)
+at br.com.rsinet.hub_tdd.test.CadastraUsuarioTest.deveCadastrarUsuarioNovoTest(CadastraUsuarioTest.java:72)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -108,70 +108,82 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveCadastrarUsuarioNovoTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="finaliza" is-config="true" duration-ms="909" started-at="2020-01-24T18:16:00Z" finished-at="2020-01-24T18:16:01Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="finaliza" is-config="true" duration-ms="893" started-at="2020-01-27T13:12:04Z" finished-at="2020-01-27T13:12:05Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveCadastrarUsuarioNovoTest status=FAILURE method=CadastraUsuarioTest.deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b] output={null}]]]>
+                <![CDATA[[TestResult name=deveCadastrarUsuarioNovoTest status=FAILURE method=CadastraUsuarioTest.deveCadastrarUsuarioNovoTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="inicializa" is-config="true" duration-ms="10573" started-at="2020-01-24T18:16:01Z" finished-at="2020-01-24T18:16:12Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="inicializa" is-config="true" duration-ms="10512" started-at="2020-01-27T13:12:05Z" finished-at="2020-01-27T13:12:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="deveValidarCamposObrigatorioDoCadastroTest" duration-ms="1679" started-at="2020-01-24T18:16:12Z" finished-at="2020-01-24T18:16:14Z">
+        <test-method status="PASS" signature="deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="deveValidarCamposObrigatorioDoCadastroTest" duration-ms="1717" started-at="2020-01-27T13:12:16Z" finished-at="2020-01-27T13:12:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deveValidarCamposObrigatorioDoCadastroTest -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b]" name="finaliza" is-config="true" duration-ms="894" started-at="2020-01-24T18:16:14Z" finished-at="2020-01-24T18:16:14Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="finaliza" is-config="true" duration-ms="915" started-at="2020-01-27T13:12:18Z" finished-at="2020-01-27T13:12:19Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=deveValidarCamposObrigatorioDoCadastroTest status=SUCCESS method=CadastraUsuarioTest.deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@436a4e4b] output={null}]]]>
+                <![CDATA[[TestResult name=deveValidarCamposObrigatorioDoCadastroTest status=SUCCESS method=CadastraUsuarioTest.deveValidarCamposObrigatorioDoCadastroTest()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
+        <test-method status="PASS" signature="finalizaReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.CadastraUsuarioTest@f2f2cc1]" name="finalizaReport" is-config="true" duration-ms="191" started-at="2020-01-27T13:13:06Z" finished-at="2020-01-27T13:13:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizaReport -->
+        <test-method status="PASS" signature="finalizaReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="finalizaReport" is-config="true" duration-ms="59" started-at="2020-01-27T13:13:06Z" finished-at="2020-01-27T13:13:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizaReport -->
+        <test-method status="PASS" signature="finalizaReport()[pri:0, instance:br.com.rsinet.hub_tdd.test.PesquisaProdutoTest@3b2cf7ab]" name="finalizaReport" is-config="true" duration-ms="54" started-at="2020-01-27T13:13:07Z" finished-at="2020-01-27T13:13:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- finalizaReport -->
       </class> <!-- br.com.rsinet.hub_tdd.test.CadastraUsuarioTest -->
       <class name="br.com.rsinet.hub_tdd.test.FiltraProdutoTest">
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="inicializa" is-config="true" duration-ms="10051" started-at="2020-01-24T18:16:14Z" finished-at="2020-01-24T18:16:24Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="inicializa" is-config="true" duration-ms="9977" started-at="2020-01-27T13:12:19Z" finished-at="2020-01-27T13:12:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="procuraProdutoExistentePelaLupaDePesquisa" duration-ms="1182" started-at="2020-01-24T18:16:24Z" finished-at="2020-01-24T18:16:26Z">
+        <test-method status="PASS" signature="procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="procuraProdutoExistentePelaLupaDePesquisa" duration-ms="1052" started-at="2020-01-27T13:12:28Z" finished-at="2020-01-27T13:12:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- procuraProdutoExistentePelaLupaDePesquisa -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="finaliza" is-config="true" duration-ms="933" started-at="2020-01-24T18:16:26Z" finished-at="2020-01-24T18:16:27Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="finaliza" is-config="true" duration-ms="939" started-at="2020-01-27T13:12:30Z" finished-at="2020-01-27T13:12:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=procuraProdutoExistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1] output={null}]]]>
+                <![CDATA[[TestResult name=procuraProdutoExistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.procuraProdutoExistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finaliza -->
-        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="inicializa" is-config="true" duration-ms="10102" started-at="2020-01-24T18:16:27Z" finished-at="2020-01-24T18:16:37Z">
+        <test-method status="PASS" signature="inicializa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="inicializa" is-config="true" duration-ms="9974" started-at="2020-01-27T13:12:30Z" finished-at="2020-01-27T13:12:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- inicializa -->
-        <test-method status="PASS" signature="procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="procuraProdutoInexistentePelaLupaDePesquisa" duration-ms="1253" started-at="2020-01-24T18:16:37Z" finished-at="2020-01-24T18:16:38Z">
+        <test-method status="PASS" signature="procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="procuraProdutoInexistentePelaLupaDePesquisa" duration-ms="1244" started-at="2020-01-27T13:12:40Z" finished-at="2020-01-27T13:12:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- procuraProdutoInexistentePelaLupaDePesquisa -->
-        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1]" name="finaliza" is-config="true" duration-ms="914" started-at="2020-01-24T18:16:38Z" finished-at="2020-01-24T18:16:39Z">
+        <test-method status="PASS" signature="finaliza(org.testng.ITestResult)[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870]" name="finaliza" is-config="true" duration-ms="898" started-at="2020-01-27T13:12:42Z" finished-at="2020-01-27T13:12:43Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=procuraProdutoInexistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@f2f2cc1] output={null}]]]>
+                <![CDATA[[TestResult name=procuraProdutoInexistentePelaLupaDePesquisa status=SUCCESS method=FiltraProdutoTest.procuraProdutoInexistentePelaLupaDePesquisa()[pri:0, instance:br.com.rsinet.hub_tdd.test.FiltraProdutoTest@3a079870] output={null}]]]>
               </value>
             </param>
           </params>
